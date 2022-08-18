@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>codelib sample</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 80px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      a {
+        text-decoration-line: none;
+        color: inherit;
+      }
+
+      body {
+        background: #fff;
+        color: #555555;
+      }
+
+      svg {
+        margin-top: 80px;
+        margin-left: 40px;
+        width: 680px;
+        height: 460px;
+      }
+
+      .bar {
+        fill: lightslategray;
+        opacity: 0.4;
+      }
+      
+      .barNum {
+        font-size: 9pt;
+        text-anchor: middle;
+      }
+      .axis text {
+        font-family: sans-serif;
+        font-size: 11px;
+      }
+      .axis path,
+      .axis line {
+        fill: none;
+        stroke: black;
+      }
+      .axis_x line {
+        fill: none;
+        stroke: black;
+      }
+      .barName {
+        font-size: 9pt;
+        text-anchor: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1><a href="SustainED.html">SustainED</a></h1>
+      <hr />
+    </header>
+    <p
+      style="font-size: 40px; position: absolute; margin-top: 26px; margin-left: 40px;">
+      경북대학교 SDG 분석 결과
+    </p>
+    <svg id="myGraph"></svg>
+    <script src="JS/molla copy.js"></script>
+  </body>
+</html>

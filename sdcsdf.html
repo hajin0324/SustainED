@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SustainED </title>
+    <link rel="stylesheet" href="CSS/Uni_select.css">
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="SustainED.html">SustainED</a></h1>
+
+      <div class="wrapper">
+        <div class="search-data">
+          <input type="text" required>
+          <div class="line"></div>
+          <label>Type to search..</label>
+          <img id="move" src="Images/search.png">
+        </div>
+      </div>
+    </header>
+      
+    <nav id="des">
+      <p class="menu"><a href="Sustainability.html">What is Sustainability?</a></p>
+      <p class="menu"><a href="17Goals.html">What are 17 GOALS?</a></p>
+      <p class="menu"><a href="5p.html">What is 5p?</a></p>
+    </nav>
+
+    <!-- <a id="move">Move</a> -->
+      
+    <script>
+      move.onclick = function(){
+        var select_uni = document.getElementsByClassName('search-data').innerText
+        if(select_uni == '강원대학교')
+          location.href = 'KNU SDGs.html'
+        else if(select_uni == '건국대학교')
+          location.href = 'SJ SDGs.html'
+        else if(select_uni == '경북대학교')
+          location.href = 'KPNU SDGs.html' 
+        else if(select_uni == '경희대학교')
+          location.href = 'HUFS SDGs.html'
+        else if(select_uni == '부산대학교')
+          location.href = 'SJ SDGs.html'
+        else if(select_uni == '세종대학교')
+          location.href = 'SJ SDGs.html' 
+        else if(select_uni == '서울시립대학교')
+          location.href = 'HUFS SDGs.html'
+        else if(select_uni == '아주대학교')
+          location.href = 'SJ SDGs.html'
+        else if(select_uni == '연세대학교')
+          location.href = 'SJ SDGs.html' 
+        else if(select_uni == '이화여자대학교')
+          location.href = 'HUFS SDGs.html'
+        else if(select_uni == '전남대학교')
+          location.href = 'SJ SDGs.html'
+        else if(select_uni == '전북대학교')
+          location.href = 'SJ SDGs.html' 
+        else if(select_uni == '제주대학교')
+          location.href = 'HUFS SDGs.html'
+        else if(select_uni == '충남대학교')
+          location.href = 'SJ SDGs.html'
+        else if(select_uni == '충북대학교')
+          location.href = 'SJ SDGs.html' 
+        else if(select_uni == '한국외국어대학교')
+          location.href = 'HUFS SDGs.html'
+        else if(select_uni == '한양대학교')
+          location.href = 'HUFS SDGs.html'
+      }
+
+    </script>
+  </body>
+</html>

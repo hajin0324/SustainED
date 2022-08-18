@@ -1,0 +1,202 @@
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SustainED </title>
+    <link rel="stylesheet" href="CSS/Uni_select copy.css">
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="SustainED.html">SustainED</a></h1>
+
+      <div class="Uni_selector">
+        <div id="selectField">
+          <p id="selectText">Select Social Media</p>
+          <img src="Images/arrow.png" id="arrowIcon">
+        </div>
+
+      <ul id="list" class="hide">
+        <li class="options">
+          <img src="Images/uni_logo/KNU.png">
+          <p>강원대학교</p>
+        </li>
+        <li class="options">
+          <img src="Images/uni_logo/KU.png">
+          <p>건국대학교</p>
+        </li>
+        <li class="options">
+          <img src="Images/uni_logo/KPNU.png">
+          <p>경북대학교</p>
+        </li>
+        <li class="options">
+          <img src="Images/uni_logo/KHU.png">
+          <p>경희대학교</p>
+        </li>
+        <li class="options">
+          <img src="Images/uni_logo/PNU.png">
+          <p>부산대학교</p>
+        </li>
+        <li class="options">
+          <img src="Images/uni_logo/HUFS.png">
+          <p>세종대학교</p>
+        </li>
+        <li class="options">
+          <img src="Images/uni_logo/UOS.png">
+          <p>서울시립대학교</p>
+        </li>
+        <li class="options">
+          <img src="Images/uni_logo/AJOU.png">
+          <p>아주대학교</p>
+        </li>
+        <li class="options">
+          <img src="Images/uni_logo/YONSEI.png">
+          <p>연세대학교</p>
+        </li>
+        <li class="options">
+          <img src="Images/uni_logo/EWHA.png">
+          <p>이화여자대학교</p>
+        </li>
+        <li class="options">
+          <img src="Images/uni_logo/JNNU.png">
+          <p>전남대학교</p>
+        </li>
+        <li class="options">
+          <img src="Images/uni_logo/JBNU.png">
+          <p>전북대학교</p>
+        </li>
+        <li class="options">
+          <img src="Images/uni_logo/JEJU.png">
+          <p>제주대학교</p>
+        </li>
+        <li class="options">
+          <img src="Images/uni_logo/CNNU.png">
+          <p>충남대학교</p>
+        </li>
+        <li class="options">
+          <img src="Images/uni_logo/CBNU.png">
+          <p>충북대학교</p>
+        </li>
+        <li class="options">
+          <img src="Images/uni_logo/HUFS.png">
+          <p>한국외국어대학교</p>
+        </li>
+        <li class="options">
+          <img src="Images/uni_logo/HYU.png">
+          <p>한양대학교</p>
+        </li>
+      </ul>
+    </div>
+    </header>
+      
+    <nav id="des">
+      <p class="menu"><a href="Sustainability.html">What is Sustainability?</a></p>
+      <p class="menu"><a href="17Goals.html">What are 17 GOALS?</a></p>
+      <p class="menu"><a href="5p.html">What is 5p?</a></p>
+    </nav>
+
+    <!-- <a id="move">Move</a> -->
+      
+    <script>
+      var selectField = document.getElementById("selectField");
+      var selectText = document.getElementById("selectText");
+      var options = document.getElementsByClassName("options");
+      var list = document.getElementById("list");
+      var arrowIcon = document.getElementById("arrowIcon");
+
+
+      selectField.onclick = function(){
+
+        list.classList.toggle("hide");
+        arrowIcon.classList.toggle("rotate");
+        document.getElementById("des").style.zIndex = "-1";
+
+      }
+
+      for(option of options){
+        option.onclick = function(){
+          selectText.innerHTML = this.textContent;
+          list.classList.toggle("hide");
+          arrowIcon.classList.toggle("rotate");
+
+          var select_uni = document.getElementById('selectText').innerText
+            if(select_uni == '강원대학교')
+              location.href = 'KNU SDGs.html'
+            else if(select_uni == '건국대학교')
+              location.href = 'SJ SDGs.html'
+            else if(select_uni == '경북대학교')
+              location.href = 'KPNU SDGs.html' 
+            else if(select_uni == '경희대학교')
+              location.href = 'HUFS SDGs.html'
+            else if(select_uni == '부산대학교')
+              location.href = 'SJ SDGs.html'
+            else if(select_uni == '세종대학교')
+              location.href = 'SJ SDGs.html' 
+            else if(select_uni == '서울시립대학교')
+              location.href = 'HUFS SDGs.html'
+            else if(select_uni == '아주대학교')
+              location.href = 'SJ SDGs.html'
+            else if(select_uni == '연세대학교')
+              location.href = 'SJ SDGs.html' 
+            else if(select_uni == '이화여자대학교')
+              location.href = 'HUFS SDGs.html'
+            else if(select_uni == '전남대학교')
+              location.href = 'SJ SDGs.html'
+            else if(select_uni == '전북대학교')
+              location.href = 'SJ SDGs.html' 
+            else if(select_uni == '제주대학교')
+              location.href = 'HUFS SDGs.html'
+            else if(select_uni == '충남대학교')
+              location.href = 'SJ SDGs.html'
+            else if(select_uni == '충북대학교')
+              location.href = 'SJ SDGs.html' 
+            else if(select_uni == '한국외국어대학교')
+              location.href = 'HUFS SDGs.html'
+            else if(select_uni == '한양대학교')
+              location.href = 'HUFS SDGs.html'
+
+/*           document.getElementById("move").style.zIndex = "1"; */
+        }
+      }
+
+      move.onclick = function(){
+        var select_uni = document.getElementById('selectText').innerText
+        if(select_uni == '강원대학교')
+          location.href = 'KNU SDGs.html'
+        else if(select_uni == '건국대학교')
+          location.href = 'SJ SDGs.html'
+        else if(select_uni == '경북대학교')
+          location.href = 'KPNU SDGs.html' 
+        else if(select_uni == '경희대학교')
+          location.href = 'HUFS SDGs.html'
+        else if(select_uni == '부산대학교')
+          location.href = 'SJ SDGs.html'
+        else if(select_uni == '세종대학교')
+          location.href = 'SJ SDGs.html' 
+        else if(select_uni == '서울시립대학교')
+          location.href = 'HUFS SDGs.html'
+        else if(select_uni == '아주대학교')
+          location.href = 'SJ SDGs.html'
+        else if(select_uni == '연세대학교')
+          location.href = 'SJ SDGs.html' 
+        else if(select_uni == '이화여자대학교')
+          location.href = 'HUFS SDGs.html'
+        else if(select_uni == '전남대학교')
+          location.href = 'SJ SDGs.html'
+        else if(select_uni == '전북대학교')
+          location.href = 'SJ SDGs.html' 
+        else if(select_uni == '제주대학교')
+          location.href = 'HUFS SDGs.html'
+        else if(select_uni == '충남대학교')
+          location.href = 'SJ SDGs.html'
+        else if(select_uni == '충북대학교')
+          location.href = 'SJ SDGs.html' 
+        else if(select_uni == '한국외국어대학교')
+          location.href = 'HUFS SDGs.html'
+        else if(select_uni == '한양대학교')
+          location.href = 'HUFS SDGs.html'
+      }
+
+    </script>
+  </body>
+</html>

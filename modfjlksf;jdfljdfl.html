@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lo="ko">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <title>ESG</title>
+    <style>
+      header {
+        text-align: center;
+        font-size: 30px;
+        border-bottom: 1px solid black;
+      }
+      body{
+        background: #fff;
+        color: #555555;
+      }
+      #container {
+        display: flex;
+      }
+      #university {
+        margin-left: 40px;
+        font-size: 40px;
+      }
+      #graph {
+        margin-top: 20px;
+        margin-right: 20px;
+        text-align: center;
+        height: 450px;
+        width: 450px;
+      }
+      #line-graph {
+        margin-top: 20px;
+        margin-right: 20px;
+        text-align: center;
+        height: 450px;
+        width: 450px;
+      }
+      #des {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 1200px;
+        margin: 40px 80px;
+      }
+      .content {
+        width: 100%;
+        display: flex;
+      }
+      .content img{
+        width: 120px;
+        height: 120px;
+        margin-right: 1px;
+      }
+      .list {
+        width: 50%;
+        border-bottom: 1px dashed black;
+        display: flex;
+        padding: 10px 10px;
+      }
+      #paragraph {
+        padding-top: 50px;
+        margin-bottom: 20px;
+      }
+      #paragraph img{
+        width: 78px;
+        height: 78px;
+        margin-right: 1px;
+      }
+      #text{
+        font-family: sans-serif;
+        width:100%;
+        display:flex;
+        padding-left: 20px;
+      }
+
+      .last {
+        flex-grow: 1;
+      }
+
+
+      body{
+        background: #fff;
+        color: #555555;
+      }
+      .last svg{
+        margin-left: 20px;
+        width: 480px;
+        height: 280px;
+      }
+
+      .bar {
+        fill: lightslategray;
+        opacity: 0.4;
+      }
+      
+      .barNum {
+        font-size: 9pt;
+        text-anchor: middle;
+      }
+      .axis text {
+        font-family: sans-serif;
+        font-size: 11px;
+      }
+      .axis path,
+      .axis line {
+        fill: none;
+        stroke: black;
+      }
+      .axis_x line {
+        fill: none;
+        stroke: black;
+      }
+      .barName {
+        font-size: 9pt;
+        /* text-anchor: middle; */
+      }
+
+      .dot{
+        fill: skyblue;
+        stroke: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>SustainED</h1>
+    </header>
+    <h2 id="university">경북대학교 SDGs 분석 결과</h2>
+    <section id="container">
+      <main id="graph">
+        <script>
+            var data = [20, 10, 40, 30, 15, 35];
+            var arcs = d3.pie()(data);
+            var width = 450;
+            var height = 450;
+            var scale_outerRadius = d3.scaleLinear().domain([0, d3.max(data)])
+                                      .range([50, 200])
+
+            var arc = d3.arc()
+                        .innerRadius(0)
+                        .outerRadius(function (d) { return scale_outerRadius(d.value);})
+            
+            var svg = d3.select("#graph").append("svg")
+                        .attr("width", width)
+                        .attr("height", height)
+/*                         .style("background-color", "ivory"); */
+              
+            g = svg.append("g")
+                  .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+
+            var pie = g.selectAll("path")
+                      .data(arcs)
+                      .enter()
+                      .append("path")
+                      .style("fill", function(d, i){
+                           return d3.color("hsl(200, 60%, " + d.value + "%)");
+/*                         return d3.color("hsl(40, 100%, " + d.value + "%)"); */
+                      })
+                      .attr("d", arc)
+        </script>
+      </main>
+<!--       <nav id="des">
+        <div class="content">
+          <div>
+            <img src="Images/SDGs_img/SDGs.png">
+            <img src="Images/SDGs_img/SDGs1.png">
+            <img src="Images/SDGs_img/SDGs2.png">
+            <img src="Images/SDGs_img/SDGs3.png">
+            <img src="Images/SDGs_img/SDGs4.png">
+            <img src="Images/SDGs_img/SDGs5.png">
+            <img src="Images/SDGs_img/SDGs6.png">
+            <img src="Images/SDGs_img/SDGs7.png">
+            <img src="Images/SDGs_img/SDGs8.png">
+            <img src="Images/SDGs_img/SDGs9.png">
+            <img src="Images/SDGs_img/SDGs10.png">
+            <img src="Images/SDGs_img/SDGs11.png">
+            <img src="Images/SDGs_img/SDGs12.png">
+            <img src="Images/SDGs_img/SDGs13.png">
+            <img src="Images/SDGs_img/SDGs14.png">
+            <img src="Images/SDGs_img/SDGs15.png">
+            <img src="Images/SDGs_img/SDGs16.png">
+            <img src="Images/SDGs_img/SDGs17.png">
+          </div>
+        </div>
+      </nav> -->
+    </section>
+    <article id="line-graph">
+      <script>
+        var margin = {top: 50, right: 50, bottom: 50, left: 50}
+        , width = window.innerWidth - margin.left - margin.right
+        , height = window.innerHeight - margin.top - margin.bottom;
+
+        var n = 5;
+
+        var xScale = d3.scaleLinear()
+        .domain([0, n-1])
+        .range([0, width]);
+
+        var yScale = d3.scaleLinear()
+        .domain([0, 1])
+        .range([height, 0]);
+
+        var line = d3.line()
+        .x(function(d, i) { return xScale(i); })
+        .y(function(d) { return yScale(d.y); })
+        .curve(d3.curveMonotoneX)
+
+        var dataset = d3.range(n).map(function(d) { return {"y": d3.randomUniform(1)}})
+
+        var svg = d3.select("body").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        svg.append("g")
+           .attr("class", "x axis")
+           .attr("transform", "translate(0," + height + ")")
+           .call(d3.axisBottom(xScale));
+
+        svg.append("g")
+           .attr("class", "y axis")
+           .call(d3.axisLeft(yScale));
+
+        svg.append("g")
+           .attr("class", "y axis")
+           .attr("transform", "translate( " + width + ", 0)")
+           .call(d3.axisRight(yScale));
+
+        svg.append("path")
+           .datum(dataset)
+           .attr("class", "line")
+           .attr("d", line)
+
+        svg.selectAll(".dot")
+           .data(dataset)
+           .enter().append("circle")
+           .attr("class", "dot")
+           .attr("cx", function(d, i) { return xScale(i) })
+           .attr("cy", function(d) { return yScale(d.y) })
+           .attr("r", 5)
+              .on("mouseover", function(a, b, c) {
+                console.log(a)
+              this.attr('class', 'focus')
+              })
+      </script>
+    </article>
+    <article id="paragraph">
+
+    </article>
+    <footer id="text">
+      <div class="last">
+        <p>한국 대학 그래프</p>
+        <svg id="myGraph1"></svg>
+        <script src="KUNI.js"></script>
+      </div>
+      <div class="last">
+        <P>해외 대학 그래프</P>
+        <svg id="myGraph2"></svg>
+        <script src="BUNI.js"></script>
+      </div>
+      <div class="last" style="margin-right: 40px;">국내에 없는 해외 자료 요약한 내용 들어갈 공간</div>
+    </footer>
+  </body>
+</html>
