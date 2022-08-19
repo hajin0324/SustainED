@@ -93,10 +93,11 @@ body{
     font-weight: 280px;
     line-height: 1.2;  
     text-transform: uppercase;
-    margin-top: 100px;
+    margin-top: 240px;
+    margin-left: 200px;
 }
 #intro-sub {
-    margin-left: 4px;
+    margin-left: 204px;
     margin-bottom: 10px;
 }
 
@@ -125,18 +126,19 @@ body{
 }
 
 .Uni_selector{
+    margin-left: 200px;
     width: 400px;
     /* position: relative;
     left: 520px;
     top: 26px; */
 }
 #selectField{
+    background-color: white;
     width: 400px;
     padding: 15px 20px;
     margin-top: 30px;
     margin-bottom: 10px;
     box-sizing: border-box;
-    border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -147,9 +149,10 @@ body{
     transition: transform 0.5s;
 }
 #list{
+    background-color: white;
     width: 400px;
     display: inline-block;
-    border: 1px solid black;
+    border: 1px solid lightgray;
     max-height: 240px;
     opacity: 1;
     overflow-y: scroll;
@@ -158,11 +161,11 @@ body{
 
 #list::-webkit-scrollbar {
     width: 8px;
-    background: #ffc35c;
+    background: white;
 }
 
 #list::-webkit-scrollbar-thumb{
-    background: #ffa50b;
+    background: lightgray;
 }
 
 .options{
@@ -170,7 +173,7 @@ body{
     padding: 15px 0 15px 70px;
     list-style: none;
     cursor: pointer;
-    border: 0.5px solid black;
+    border: 0.5px solid lightgray;
     box-sizing: border-box;
     position: relative;
 }
@@ -197,8 +200,8 @@ body{
 #move{
     padding: 1em 2em;
     position: absolute;
-    left: 24%;
-    top: 60%;
+    left: 390px;
+    top: 460px;
     z-index: 1;
     color: black;
       margin-top:2rem;
@@ -217,6 +220,6 @@ body{
 .main-img {
     max-width: 100%;
     height: auto;
-    margin-top: 50px;
-    margin-left: -80px;
+    margin-top: 160px;
+    margin-left: -40px;
 }

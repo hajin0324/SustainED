@@ -98,9 +98,9 @@ d3.csv("CSV/3data.csv", function(error, data) {
     .append("text")
     .attr("class", "barName")
     .attr("x", function(d, i) { //X좌표 지정
-        return i * (barWidth + barMargin) + offsetX + (barWidth/2 + barMargin); //막대그래프의 표시 간격을 맞춤
+        return i * (barWidth + barMargin) + offsetX + (barWidth/2 + barMargin) - 13; //막대그래프의 표시 간격을 맞춤
     })
-    .attr("y", svgHeight - offsetY + barMargin)
+    .attr("y", svgHeight - offsetY + barMargin - 9)
     .text(function(d, i) {
         return labelName[i]; //레이블 이름을 반환
     })

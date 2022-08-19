@@ -5,30 +5,241 @@
     <title>SustainED </title>
     <link rel="stylesheet" href="CSS/SustainED.css">
     <style>
-      #goals {
-        position: absolute;
-        top: 280px;
-        left: 20px;
+      *{
+          margin: 0;
+          padding: 0;
+          font-family: sans-serif;
       }
 
-      #goals img {
-        margin: auto;
-        width: 70px;
-        height: 70px;
+      h1 {
+          margin-bottom: 10px;
+          font-size: 50px;
+          font-family: "Oswald", sans-serif;
+          font-weight: 500px;
+          line-height: 1.2;
+      }
+
+      h6 {
+          margin-left: 62px;
+      }
+
+      header, nav {
+          display: block;
+      }
+
+      a {
+        color: #FFAA17;
+        text-decoration: none;
+        background-color: transparent;
+      }
+
+      a:hover {
+          color: #ca8000;
+      }
+
+      body{
+          font-family: "Rubik";
+          background: #fff;
+      /*     color: #555555; */
+      }
+      .header {
+          width: 100%;
+          padding-right: 15px;
+          padding-left: 15px;
+          position: flex;
+      }
+      .des {
+          position: relative;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0.5rem 1rem;
+          background-color: white;
+      }
+      .name {
+          font-size: 40px;
+          font-weight: 300px;
+          text-transform: uppercase;
+          display: inline-block;
+          padding-top: 18px;
+          padding-bottom: 10px;
+          margin-right: 20px;
+          line-height: inherit;
+          color: black;
+      }
+      .name:hover {
+          color: black;
+      }
+      .menu-wrap {
+          font-family: 'Oswald';
+          font-weight: 400;
+          text-transform: uppercase;
+          padding: 45px 15px;
+          margin-left: auto;
+          align-items: center;
+          display: flex;
+          flex-basis: auto;
+      }
+      .menu {
+          margin-right: 100px;
+          text-align: center;
+          flex-grow: 1;
+      }
+      .menu:hover {
+          color: #ca8000;
+      }
+      
+      #university {
+        height: 160px;
+        padding-left: 20px;
+        padding-top: 100px;
+        margin-bottom: 30px;
+        font-size: 60px;
+        font-weight: 400px;
+        text-align: center;
+        background-color: #FFAA17;
+      }
+
+      .goals-wrap {
+        position: absolute;
+        left: 320px;
+        top: 500px;
+      }
+      .six {
+        display: flex;
+
+      }
+      .explain {
+        background-color: rgb(246, 246, 246);
+        width: 200px;
+        height: 260px;
+        margin-right: 20px;
+        margin-bottom: 40px;
+      }
+      .goal-img {
+        width: 180px;
+        height: 180px;
+        padding: 10px 10px;
+      }
+      .text-l {
+        padding: 4px 14px;
+        font-size: 18px;
+        font-weight: 500;
       }
     </style>
   </head>
 
   <body>
-    <header>
-      <h1><a href="SustainED sujeong.html">SustainED</a></h1>
-      <nav id="des">
-        <p class="menu"><a href="Sustainability.html">Sustainability</a></p>
-        <p class="menu"><a href="17Goals.html">17 GOALS</a></p>
-        <p class="menu"><a href="5p.html">5P</a></p>
+    <header class="header">
+      <nav class="des">
+        <a href="SustainED.html"><h1 class="name">SUSTAINED</h1></a>
+        <div class="menu-wrap">
+          <p class="menu"><a href="about.html">ABOUT SDGS</a></p>
+          <p class="menu"><a href="17Goals.html">OUR 17 GOALS</a></p>
+          <p class="menu"><a href="5p.html">WHAT IS 5P</a></p>
+        </div>
       </nav>
-      <hr>
     </header>
-  
+
+    <h2 id="university">OUR 17 GOALS</h2>
+
+    <article class="goals-wrap">
+      <div class="six">
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs1.png">
+          <p class="text-l">빈곤퇴치</p>
+          <p class="text-s"></p>
+        </div>
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs2.png">
+          <p class="text-l">기아종식</p>
+          <p class="text-s"></p>
+        </div>
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs3.png">
+          <p class="text-l">건강과 웰빙 증진</p>
+          <p class="text-s"></p>
+        </div>
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs4.png">
+          <p class="text-l">양질의 교육 보장</p>
+          <p class="text-s"></p>
+        </div>
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs5.png">
+          <p class="text-l">성평등 달성</p>
+          <p class="text-s"></p>
+        </div>
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs6.png">
+          <p class="text-l">깨끗한 물과 위생 보장</p>
+          <p class="text-s"></p>
+        </div>
+      </div>
+        
+      <div class="six">
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs7.png">
+          <p class="text-l">에너지 보장</p>
+          <p class="text-s"></p>
+        </div>
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs8.png">
+          <p class="text-l">경제성장 양질의 일자리</p>
+          <p class="text-s"></p>
+        </div>
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs9.png">
+          <p class="text-l">산업화 및 혁신</p>
+          <p class="text-s"></p>
+        </div>
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs10.png">
+          <p class="text-l">불평등 감소</p>
+          <p class="text-s"></p>
+        </div>
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs11.png">
+          <p class="text-l">지속가능한 도시</p>
+          <p class="text-s"></p>
+        </div>
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs12.png">
+          <p class="text-l">지속가능한 소비와 생산</p>
+          <p class="text-s"></p>
+        </div>
+      </div>
+
+      <div class="six">
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs13.png">
+          <p class="text-l">기후변화 대응</p>
+          <p class="text-s"></p>
+        </div>
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs14.png">
+          <p class="text-l">해양생태계 보존</p>
+          <p class="text-s"></p>
+        </div>
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs15.png">
+          <p class="text-l">육상생태계 보호</p>
+          <p class="text-s"></p>
+        </div>
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs16.png">
+          <p class="text-l">평화 정의 포용적 제도</p>
+          <p class="text-s"></p>
+        </div>
+        <div class="explain">
+          <img class="goal-img" src="Images/SDGs_img/SDGs17.png">
+          <p class="text-l">글로벌 파트너십</p>
+          <p class="text-s"></p>
+        </div>
+      </div>
+    </article>
+
+    
   </body>
 </html>
