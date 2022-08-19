@@ -22,7 +22,14 @@
           margin-left: 62px;
       }
 
-      header, nav {
+      header {
+          width: 100vw;
+          display: block;
+          background-color: white;
+          position: relative;
+      }
+
+      nav {
           display: block;
       }
 
@@ -37,16 +44,10 @@
       }
 
       body{
-          font-family: "Rubik";
-          background: #fff;
-      /*     color: #555555; */
+        font-family: "Oswald", sans-serif;
+        background: #fff;
       }
-      .header {
-          width: 1900px;
-          padding-right: 15px;
-          padding-left: 15px;
-          position: flex;
-      }
+
       .des {
           position: relative;
           display: flex;
@@ -81,38 +82,39 @@
           flex-basis: auto;
       }
       .menu {
-          margin-right: 100px;
+          margin-right: 6vw;
           text-align: center;
           flex-grow: 1;
+          font-family: "Rubik", sans-serif;
       }
       .menu:hover {
           color: #ca8000;
       }
       
-      #university {
-        width: 1900px;
-        height: 160px;
-        padding-left: 20px;
-        padding-top: 100px;
-        margin-bottom: 30px;
-        font-size: 60px;
-        font-weight: 400px;
-        text-align: center;
-        background-color: #FFAA17;
+      .university {
+          height: 140px;
+          padding-left: 20px;
+          padding-top: 68px;
+          margin-bottom: 30px;
+          font-size: 60px;
+          font-weight: 400px;
+          text-align: center;
+          background-color: #FFAA17;
       }
 
       /* The Imapct Ranking */
       .container {
-        width: 100%;
+        width: 100vw;
         display: flex;
       }
       #impact {
         padding-left: 10px;
         padding-right: 10px;
         font-size: 30px;
+        font-family: Arial;
         position: absolute;
-        top: 430px;
-        left: 220px;
+        top: 375px;
+        left: 300px;
         background-color: white;
       }
       #ranking {
@@ -120,7 +122,7 @@
         font-size: 20px;
         height: 320px;
         width: 600px; 
-        margin-left: 200px;
+        margin-left: 280px;
         margin-top: 60px;
         display: flex;
       }
@@ -130,7 +132,7 @@
       #content1 {
         width: 280px;
         padding-top: 70px;
-        margin-left: 2%;
+        margin-left: 4%;
       }
       #year {
         font-size: 28px;
@@ -158,7 +160,7 @@
       /* 파이차트 */
       #piechart {
         padding-top: 10px;
-        margin-left: 500px;
+        margin-left: 400px;
         width: 40%;
         text-align: center;
       }
@@ -167,7 +169,7 @@
       #keyword-compare {
         text-align: center;
         flex-wrap: wrap;
-        width: 1900px;
+        width: 100vx;
         height: 140px;
         display:flex;
         padding-top: 80px;
@@ -265,7 +267,7 @@
     </style>
   </head>
   <body>
-    <header class="header">
+    <header>
       <nav class="des">
         <a href="SustainED.html"><h1 class="name">SUSTAINED</h1></a>
         <div class="menu-wrap">
@@ -277,7 +279,7 @@
       </nav>
     </header>
 
-    <h2 id="university">경북대학교 SDGs 분석 결과</h2>
+    <h2 class="university">경북대학교 SDGs 분석 결과</h2>
     <section id="container">
       <p id="impact">The Impact Ranking</p>
       <main id="ranking">

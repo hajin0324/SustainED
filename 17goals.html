@@ -4,130 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SustainED </title>
     <link rel="stylesheet" href="CSS/SustainED.css">
-    <style>
-      *{
-          margin: 0;
-          padding: 0;
-          font-family: sans-serif;
-      }
-
-      h1 {
-          margin-bottom: 10px;
-          font-size: 50px;
-          font-family: "Oswald", sans-serif;
-          font-weight: 500px;
-          line-height: 1.2;
-      }
-
-      h6 {
-          margin-left: 62px;
-      }
-
-      header, nav {
-          display: block;
-      }
-
-      a {
-        color: #FFAA17;
-        text-decoration: none;
-        background-color: transparent;
-      }
-
-      a:hover {
-          color: #ca8000;
-      }
-
-      body{
-          font-family: "Rubik";
-          background: #fff;
-      /*     color: #555555; */
-      }
-      .header {
-          width: 100%;
-          padding-right: 15px;
-          padding-left: 15px;
-          position: flex;
-      }
-      .des {
-          position: relative;
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: space-between;
-          padding: 0.5rem 1rem;
-          background-color: white;
-      }
-      .name {
-          font-size: 40px;
-          font-weight: 300px;
-          text-transform: uppercase;
-          display: inline-block;
-          padding-top: 18px;
-          padding-bottom: 10px;
-          margin-right: 20px;
-          line-height: inherit;
-          color: black;
-      }
-      .name:hover {
-          color: black;
-      }
-      .menu-wrap {
-          font-family: 'Oswald';
-          font-weight: 400;
-          text-transform: uppercase;
-          padding: 45px 15px;
-          margin-left: auto;
-          align-items: center;
-          display: flex;
-          flex-basis: auto;
-      }
-      .menu {
-          margin-right: 100px;
-          text-align: center;
-          flex-grow: 1;
-      }
-      .menu:hover {
-          color: #ca8000;
-      }
-      
-      #university {
-        height: 160px;
-        padding-left: 20px;
-        padding-top: 100px;
-        margin-bottom: 30px;
-        font-size: 60px;
-        font-weight: 400px;
-        text-align: center;
-        background-color: #FFAA17;
-      }
-
-      .goals-wrap {
-        position: absolute;
-        left: 320px;
-        top: 500px;
-      }
-      .six {
-        display: flex;
-
-      }
-      .explain {
-        background-color: rgb(246, 246, 246);
-        width: 200px;
-        height: 260px;
-        margin-right: 20px;
-        margin-bottom: 40px;
-      }
-      .goal-img {
-        width: 180px;
-        height: 180px;
-        padding: 10px 10px;
-      }
-      .text-l {
-        padding: 4px 14px;
-        font-size: 18px;
-        font-weight: 500;
-      }
-    </style>
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -143,10 +22,10 @@
       </nav>
     </header>
 
-    <h2 id="university">OUR 17 GOALS</h2>
+    <h2 class="university">OUR 17 GOALS</h2>
 
-    <article class="goals-wrap">
-      <div class="six">
+    <article>
+      <div class="six first-six">
         <div class="explain">
           <img class="goal-img" src="Images/SDGs_img/SDGs1.png">
           <p class="text-l">빈곤퇴치</p>
@@ -238,6 +117,7 @@
           <p class="text-l">글로벌 파트너십</p>
           <p class="text-s"></p>
         </div>
+        <div class="explain explain-none"></div>
       </div>
     </article>
 
