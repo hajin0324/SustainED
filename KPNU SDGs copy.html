@@ -9,6 +9,7 @@
           padding: 0;
           font-family: sans-serif;
       }
+
       h1 {
           margin-bottom: 10px;
           font-size: 50px;
@@ -61,9 +62,8 @@
           font-weight: 300px;
           text-transform: uppercase;
           display: inline-block;
-          padding-top: 28px;
+          padding-top: 18px;
           padding-bottom: 10px;
-          margin-left: 20px;
           margin-right: 20px;
           line-height: inherit;
           color: black;
@@ -103,13 +103,17 @@
       }
 
       /* The Imapct Ranking */
+      .container {
+        width: 100vw;
+        display: flex;
+      }
       #impact {
         padding-left: 10px;
         padding-right: 10px;
         font-size: 30px;
         font-family: Arial;
         position: absolute;
-        top: 395px;
+        top: 375px;
         left: 300px;
         background-color: white;
       }
@@ -117,16 +121,18 @@
         border: 1px solid black;
         font-size: 20px;
         height: 320px;
-        width: 600px;
-        margin-top: 80px;
+        width: 600px; 
         margin-left: 280px;
+        margin-top: 60px;
+        display: flex;
       }
       #content {
         display: flex;
       }
       #content1 {
         width: 280px;
-        padding-top: 100px;
+        padding-top: 70px;
+        margin-left: 4%;
       }
       #year {
         font-size: 28px;
@@ -146,28 +152,19 @@
       }
       #myGraph {
         padding-left: 40px;
-        padding-top: 20px;
+        padding-top: 40px;
         width: 300px;
         height: 280px;
       }
 
       /* 파이차트 */
       #piechart {
-        position: absolute;
-        top: 340px;
-        left: 940px;
+        padding-top: 10px;
+        margin-left: 400px;
+        width: 40%;
         text-align: center;
       }
-      .pie-inside {
-        font-size: 25px;
-        font-weight: bold;
-        fill: white;
-      }
-      .pielabel {
-        font-size: 20px;
-        font-weight: bold;
-        line-height: 2px;
-      }
+      
       /* 키워드 차트 */
       #keyword-compare {
         text-align: center;
@@ -175,7 +172,7 @@
         width: 100vx;
         height: 140px;
         display:flex;
-        padding-top: 120px;
+        padding-top: 80px;
         margin-bottom: 80px;
       }
       .keyword {
@@ -207,23 +204,18 @@
       }
 
       #svg1{
-        padding-left: 30px;
-        margin: -10px 60px; 
+        padding: auto;
       }
       #svg2{ 
-        padding-left: 30px;
         margin: -10px 60px; 
       }
       #svg3{ 
-        padding-left: 30px;
         margin: -10px 60px;  
       }
       #svg4{ 
-        padding-left: 30px;
         margin: -10px 60px; 
       }
       #svg5{ 
-        padding-left: 30px;
         margin: -10px 60px; 
       }
       .white { fill: #fff; }
@@ -245,8 +237,8 @@
         padding-left: 30px;
       }
       .bar {
-        fill: #FFAA17;
-/*         opacity: 0.8; */
+        fill: lightslategray;
+        opacity: 0.4;
       }
       
       .barNum {
@@ -288,7 +280,7 @@
     </header>
 
     <h2 class="university">경북대학교 SDGs 분석 결과</h2>
-    <section>
+    <section id="container">
       <p id="impact">The Impact Ranking</p>
       <main id="ranking">
         <div id="content">
@@ -303,48 +295,72 @@
           </div>
         </div>
         <div id="piechart">
-          <script src="https://d3js.org/d3.v5.min.js"></script>
+          <script src="https://d3js.org/d3.v5.16.min.js"></script>
           <script>
-            var width = 750, height = 500;
-            var colors = d3.scaleOrdinal(d3.schemeCategory20);
-            /* var colors = d3.scaleOrdinal(d3.schemeDark2); */
-            var svg = d3.select("#piechart").append("svg")
-                        .attr("width", width)
-                        .attr("height", height)
-/*                         .style("background", "pink"); */
-            var details = [{keyword:"사람", number:"8"}, {keyword:"번영", number:"21"}, 
-                           {keyword:"평화", number:"15"}, {keyword:"지구", number:"29"}, {keyword:"협력", number:"11"}];
-            var data = d3.pie().sort(null).value(function(d) {return d.number;})(details);
-            var segments = d3.arc()
-                             .innerRadius(0)
-                             .outerRadius(200)
-                             .padAngle(.05)
-                             .padRadius(50);
-            var sections = svg.append("g")
-                             .attr("transform", "translate(300, 250)")
-                             .selectAll("path")
-                             .data(data);
-            sections.enter().append("path")
-                            .attr("d", segments)
-                            .attr("fill", function(d){ return colors(d.data.number);});
-            
-            var content = d3.select("g").selectAll("text").data(data);
-            content.enter().append("text").classed("pie-inside", true).each(function(d) {
-                var center = segments.centroid(d);
-                d3.select(this).attr("x", center[0]).attr("y", center[1])
-                               .text(d.data.number);
-            });
+            const svgDimensions = {
+              width:300,
+              height:300,
+            };
+            const radius = Math.min(svgDimensions.width,svgDimensions.height)/2;
+            const datap = [200, 61, 252, 35, 36];
 
-            var legends = svg.append("g")
-                             .attr("transform", "translate(580, 150)")
-                             .selectAll(".legends").data(data);
-            var legend = legends.enter().append("g").classed("legends", true)
-                                .attr("transform", function(d,i) {return "translate(0," + (i+1)*30 + ")"});
-            legend.append("rect").attr("width", 20).attr("height", 20).attr("fill", function(d) {return colors(d.data.number);});
-            legend.append("text").classed("pielabel", true).text(function(d) {return d.data.keyword;})
-                  .attr("fill", function(d) {return colors(d.data.number);})
-                  .attr("x", 30)
-                  .attr("y", 20);
+            const svg = d3.select("#piechart").append("svg")
+                          .attr("width", svgDimensions.width)
+                          .attr("height", svgDimensions.height);
+
+            const g = svg.append("g")
+                        .attr("transform",
+                              'translate(150, 150)'
+                        );
+
+            const colorp = d3.scaleOrdinal([
+              "#ff9800",
+              "#ffa726",
+              "#ffb74d",
+              "#ffcc80",
+              "#ffe0b2",
+              "#fff3e0",
+            ]);
+
+            const pie = d3.pie();
+            const arc = d3.arc().innerRadius(0).outerRadius(radius);
+            const arcs = g.selectAll("arc")
+                          .data(pie(datap))
+                          .enter()
+                          .append("g")
+                          .attr("class", "arc")
+                          .on("mouseover", onMouseOver)
+                          .on("mouseout", onMouseOut);
+            
+            arcs.append("path")
+                .attr("fill", (d,i) => colorp(i))
+                .attr("d", arc);
+
+            arcs.append("text")
+                .attr("transform", (d) => 'translate(${arc.centroid(d)})')
+                .text((d) => d.value)
+                .attr("font-family", "sans-serif")
+                .attr("font-size", "18px")
+                .attr("font-weight", "bold")
+                .attr("fill", "#fff")
+                .attr("text-anchor", "middle")
+                .attr("display", "none");
+
+            function onMouseOut(d, i) {
+              d3.select(this).select("path")
+                .transition()
+                .duration(200)
+                .style("fill", colorp(i));
+              d3.select(this).select("text").attr("display", "none");
+            }
+
+            function onMouseOver(d, i) {
+              d3.select(this).select("path")
+                .transition()
+                .duration(200)
+                .style("fill", "#e65100");
+              d3.select(this).select("text").attr("display", "block");
+            }
           </script>
         </div>
       </main>
