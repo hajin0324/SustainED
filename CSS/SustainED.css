@@ -17,10 +17,10 @@ h6 {
 }
 
 header {
-    width: 100vw;
+    width: 1920px;
     display: block;
     background-color: white;
-    position: relative;
+    margin-bottom: 20px;
 }
 
 nav {
@@ -52,7 +52,7 @@ body{
     flex-basis: auto;
 }
 .menu {
-    margin-right: 6vw;
+    margin-right: 80px;
     text-align: center;
     flex-grow: 1;
     font-family: "Rubik", sans-serif;
@@ -61,8 +61,8 @@ body{
     color: #ca8000;
 }
 .container-main {
-    width: 100vw;
-    height: 84vh;
+    width: 1920px;
+    height: 800px;
     padding-right: 15px;
     padding-left: 15px;
     margin-left: auto;
@@ -83,24 +83,116 @@ body{
 }
 .main-left {
     position: relative;
-    width: 50%;
+    width: 800px;
+    margin-right: 100px;
     padding-right: 20px;
     padding-left: 40px;
     text-align: left;
 }
 #intro {
-    font-size: 60px;
+    font-size: 80px;
     font-weight: 280px;
     line-height: 1.2;  
     text-transform: uppercase;
-    margin-top: 240px;
+    margin-top: 200px;
     margin-left: 200px;
 }
 #intro-sub {
     margin-left: 204px;
     margin-bottom: 10px;
 }
+.Uni_selector{
+    margin-left: 240px;
+    width: 400px;
 
+    /* position: relative;
+    left: 520px;
+    top: 26px; */
+}
+#selectField{
+    background-color: white;
+    width: 400px;
+    padding: 15px 20px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+#selectField img{
+    width: 12px;
+    transition: transform 0.5s;
+}
+#list{
+    background-color: white;
+    width: 400px;
+    display: inline-block;
+    max-height: 240px;
+    opacity: 1;
+    overflow-y: scroll;
+    
+}
+
+#list::-webkit-scrollbar {
+    width: 8px;
+    background: white;
+}
+
+#list::-webkit-scrollbar-thumb{
+    background: lightgray;
+}
+
+.options{
+    width: 100%;
+    padding: 15px 0 15px 70px;
+    list-style: none;
+    cursor: pointer;
+    border-bottom: 0.5px solid lightgray;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.options img{
+    width: 25px;
+    position: absolute;
+    top: 12px;
+    left: 25px;
+}
+
+.options:hover{
+    background-color: #e2e2e2;
+}
+
+.hide{
+    visibility: hidden;
+}
+
+.rotate{
+    transform: rotate(180deg);
+}
+
+#move{
+    padding: 1em 2em;
+    position: absolute;
+    left: 440px;
+    top: 440px;
+    z-index: 1;
+    color: black;
+      margin-top:2rem;
+      font-weight: bold;
+      font-size: 0.678rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+    background-size: 400% 300%;
+    border: 1px solid black;
+}
+#move:hover{
+  color: white;
+  border: 1px solid white;
+}
 .des {
     position: relative;
     display: flex;
@@ -126,179 +218,88 @@ body{
     color: black;
 }
 
-.Uni_selector{
-    margin-left: 200px;
-    width: 400px;
-    /* position: relative;
-    left: 520px;
-    top: 26px; */
-}
-#selectField{
-    background-color: white;
-    width: 400px;
-    padding: 15px 20px;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-}
-#selectField img{
-    width: 12px;
-    transition: transform 0.5s;
-}
-#list{
-    background-color: white;
-    width: 400px;
-    display: inline-block;
-    border: 1px solid lightgray;
-    max-height: 240px;
-    opacity: 1;
-    overflow-y: scroll;
-    
-}
-
-#list::-webkit-scrollbar {
-    width: 8px;
-    background: white;
-}
-
-#list::-webkit-scrollbar-thumb{
-    background: lightgray;
-}
-
-.options{
-    width: 100%;
-    padding: 15px 0 15px 70px;
-    list-style: none;
-    cursor: pointer;
-    border: 0.5px solid lightgray;
-    box-sizing: border-box;
-    position: relative;
-}
-
-.options img{
-    width: 25px;
-    position: absolute;
-    top: 12px;
-    left: 25px;
-}
-
-.options:hover{
-    background-color: #ffc35c;
-}
-
-.hide{
-    visibility: hidden;
-}
-
-.rotate{
-    transform: rotate(180deg);
-}
-
-#move{
-    padding: 1em 2em;
-    position: absolute;
-    left: 390px;
-    top: 460px;
-    z-index: 1;
-    color: black;
-      margin-top:2rem;
-      font-weight: bold;
-      font-size: 0.678rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-decoration: none;
-    background-size: 400% 300%;
-    border: 1px solid black;
-}
-#move:hover{
-  color: white;
-  border: 1px solid white;
-}
 .main-img {
-    width: 30vw;
-    height: auto;
-    margin-top: 120px;
-    margin-left: -40px;
+    width: 540px;
+    height: 540px;
+    margin-top: 160px;
 }
 .university {
     height: 140px;
-    padding-left: 20px;
-    padding-top: 68px;
+    padding-left: 810px;
+    padding-top: 48px;
     margin-bottom: 30px;
     font-size: 60px;
     font-weight: 400px;
-    text-align: center;
     background-color: #FFAA17;
+    white-space: nowrap;
 }
 /* 5p.html */
 #p1 {
-    margin-top: 40px;
-    margin-left: 100px;
+    margin-top: 50px;
+    margin-left: 220px;
   }
 #p2 {
-    margin-bottom: 100px;
-    margin-left: 140px;
+    position: absolute;
+    top: 510px;
+    left: 840px;
 }
 
 /* about.html */
 .about-wrap {
-    width: 100%;
+    width: 1920px;
     display: flex;
-  }
-  .about {
+}
+.about {
     margin-left: 140px;
     flex-wrap: wrap;
-  }
-  .about-img {
-    margin-top: 20px;
+}
+.about-img {
+    margin-left: 100px;
+    margin-top: 40px;
     width: 600px;
     height: 600ox;
-  }
-  .headline {
+}
+.headline {
     margin-top: 100px;
     font-size: 40px;
-  }
-  .text-orange {
+}
+.text-orange {
     width: 700px;
     margin-top: 40px;
     color:#FFAA17;
     font-size: 28px;
-  }
-  .text-black {
+}
+.text-black {
     width: 700px;
     margin-top: 20px;
     font-size: 28px;
-  }
+}
 
   /* 17goals.html */
-  .first-six {
+.first-six {
     margin-top: 80px;
-  }
-  .six {
+}
+.six {
     display: flex;
-    justify-content: center;
-  }
-  .explain {
+    margin-left: 380px;
+}
+.explain {
     background-color: rgb(237, 237, 237);
     width: 180px;
     height: 240px;
     margin-right: 20px;
     margin-bottom: 30px;
-  }
-  .explain-none {
+}
+.explain-none {
     background-color: white;
-  }
-  .goal-img {
+}
+.goal-img {
     width: 160px;
     height: 160px;
     padding: 10px 10px;
-  }
-  .text-l {
+}
+.text-l {
     padding: 4px 14px;
     font-size: 18px;
     font-weight: 500;
-  }
+}
