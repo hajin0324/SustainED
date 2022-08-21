@@ -20,12 +20,12 @@ d3.csv("CSV/3data.csv", function(error, data) {
     var offsetX = 40; //X 좌표의 오프셋(어긋난 정도)
     var offsetY = 40; //Y 좌표의 오프셋(어긋난 정도)
     var barElements; //막대그래프의 막대 요소를 저장할 변수
-    var dataMax = 280; //데이터의 최댓값
+    var dataMax = 100; //데이터의 최댓값
     var barWidth = 40; //막대의 넓이
     var barMargin = 28; //막대의 옆 간격
  
     //그래프 그리기(그래프 옵션)
-    d3.select("#graph").append("svg")
+    d3.select("#mygraph").append("svg")
     barElements = d3.select("#myGraph")
     .selectAll("rect") //rect 요소를 지정
     .data(dataSet) //데이터를 요소에 연결
