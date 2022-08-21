@@ -153,6 +153,9 @@ body{
     box-sizing: border-box;
     position: relative;
 }
+.options p{
+    
+}
 
 .options img{
     width: 25px;
@@ -241,7 +244,7 @@ body{
 #p2 {
     position: absolute;
     top: 510px;
-    left: 840px;
+    left: 880px;
 }
 
 /* about.html */

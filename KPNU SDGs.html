@@ -3,7 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <title>ESG</title>
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet">
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Sunflower&display=swap");
+      :root {
+        --main-font: 'Sunflower', sans-serif;
+      }
+      text {
+        font-family: var(--main-font);
+      }
       *{
           margin: 0;
           padding: 0;
@@ -18,14 +28,15 @@
       }
 
       h6 {
-          margin-left: 62px;
+        font-family: "Oswald", sans-serif;
+        margin-left: 62px;
       }
 
       header {
-          width: 100vw;
-          display: block;
-          background-color: white;
-          position: relative;
+        width: 1920px;
+        display: block;
+        background-color: white;
+        margin-bottom: 20px;
       }
 
       nav {
@@ -82,7 +93,7 @@
           flex-basis: auto;
       }
       .menu {
-          margin-right: 6vw;
+          margin-right: 80px;
           text-align: center;
           flex-grow: 1;
           font-family: "Rubik", sans-serif;
@@ -92,10 +103,11 @@
       }
       
       .university {
+          font-family: "Oswald", sans-serif;
           width: 1920px;
           height: 140px;
           padding-left: 20px;
-          padding-top: 68px;
+          padding-top: 50px;
           margin-bottom: 30px;
           font-size: 60px;
           font-weight: 400px;
@@ -156,8 +168,8 @@
       /* 파이차트 */
       #piechart {
         position: absolute;
-        top: 340px;
-        left: 940px;
+        top: 368px;
+        left: 968px;
         text-align: center;
       }
       .pie-inside {
@@ -171,6 +183,18 @@
         line-height: 2px;
       }
       /* 키워드 차트 */
+      #key-legend {
+        width: 200px;
+        height: 80px;
+        position: absolute;
+        top: 834px;
+        left: 40px;
+      }
+      #key-legend text {
+        font-size: 12px;
+        font-family: 'Sunflower', sans-serif;
+        font-weight: 100px;
+      }
       #keyword-compare {
         text-align: center;
         flex-wrap: wrap;
@@ -207,29 +231,30 @@
         text-align: center;
         padding-top: 20px;
       }
-
       #svg1{
-        padding-left: 30px;
-        margin: -10px 60px; 
+        padding-left: 24px;
+        margin: -6px 60px; 
       }
       #svg2{ 
-        padding-left: 30px;
-        margin: -10px 60px; 
+        padding-left: 24px;
+        margin: -6px 60px; 
       }
       #svg3{ 
-        padding-left: 30px;
-        margin: -10px 60px;  
+        padding-left: 24px;
+        margin: -6px 60px;  
       }
       #svg4{ 
-        padding-left: 30px;
-        margin: -10px 60px; 
+        padding-left: 24px;
+        margin: -6px 60px; 
       }
       #svg5{ 
-        padding-left: 30px;
-        margin: -10px 60px; 
+        padding-left: 24px;
+        margin: -6px 60px; 
       }
       .white { fill: #fff; }
-      .orange { fill: rgb(255, 129, 4)}
+      .blue { fill: blue; }
+      .red { fill: red; }
+      .black { fill: black; }
 
 
       /* 키워드 그래프 */
@@ -285,103 +310,108 @@
     </header>
 
     <h2 class="university">경북대학교 SDGs 분석 결과</h2>
-    <section id="ranking">
-      <div id="content">
-        <div>
-          <p id="impact">Impact ranking score</p>
-          <p id="score">95.8점</p>
-        </div>
-        <div>
-          <svg id="myGraph"></svg>
-          <script src="https://d3js.org/d3.v4.min.js"></script>
-          <script>
-            var dataset = [{x:'2020', y:85 }, {x:'2021', y:89}, {x:'2022', y:95.9}];
-            var svg = d3.select("#myGraph");
-            var width  = parseInt(svg.style("width"), 10) -30;
-            var height = parseInt(svg.style("height"), 10) -20;
-            var svgG = svg.append("g")
-                .attr("transform", "translate(30, 0)");
-                    
-            var xScale = d3.scaleBand()
-                .domain(dataset.map(function(d) { return d.x;} ))
-                .range([0, width]).padding(0.4);
-            var yScale = d3.scaleLinear()
-                .domain([60, 100])
-                .range([height, 10]);
+    <marin>
+      <section id="ranking">
+        <div id="content">
+          <div>
+            <p id="impact">Impact ranking score</p>
+            <p id="score">95.8점</p>
+          </div>
+          <div>
+            <svg id="myGraph"></svg>
+            <script src="https://d3js.org/d3.v4.min.js"></script>
+            <script>
+              var dataset = [{x:'2020', y:85 }, {x:'2021', y:89}, {x:'2022', y:95.9}];
+              var svg = d3.select("#myGraph");
+              var width  = parseInt(svg.style("width"), 10) -30;
+              var height = parseInt(svg.style("height"), 10) -20;
+              var svgG = svg.append("g")
+                            .attr("transform", "translate(30, 0)");
+                      
+              var xScale = d3.scaleBand()
+                  .domain(dataset.map(function(d) { return d.x;} ))
+                  .range([0, width]).padding(0.4);
+              var yScale = d3.scaleLinear()
+                  .domain([60, 100])
+                  .range([height, 10]);
 
-            var scale = d3.scaleOrdinal()
-                .range(["#FFAA17"]);
-                
-            svgG.append("g")            
-                .attr("transform", "translate(0," + height + ")")
-                .call(d3.axisBottom(xScale));
-            /* y축 표시 */    
-            svgG.append("g")
-                .attr("class", "grid")
-                .call(d3.axisLeft(yScale)
-                    .ticks(10)
-                );
-                
-            var barG = svgG.append("g");
-            /* 막대 표시 */    
-            barG.selectAll("#myGraph")
-                .data(dataset)
-                .enter().append("rect")
-                    .attr("class", "bar")
-                    .attr("height", function(d, i) {return height-yScale(d.y)})
-                    .attr("width", xScale.bandwidth())
-                    .attr("x", function(d, i) {return xScale(d.x)})
-                    .attr("y", function(d, i) {return yScale(d.y)})
-                    .attr("fill", function(d) { return scale(d.x); })     
-            /* score 표시 */    
-            barG.selectAll("#myGraph")
-                .data(dataset)
-                .enter().append("text")
-                .text(function(d) {return d.y})
-                    .attr("class", "text")
-                    .attr("x", function(d, i) {return xScale(d.x)+xScale.bandwidth()/2})
-                    .style("text-anchor", "middle")
-                    .attr("y", function(d, i) {return yScale(d.y) + 28});
-          </script>
+              var scale = d3.scaleOrdinal()
+                  .range(["#FFAA17"]);
+                  
+              svgG.append("g")            
+                  .attr("transform", "translate(0," + height + ")")
+                  .call(d3.axisBottom(xScale));
+              /* y축 표시 */    
+              svgG.append("g")
+                  .attr("class", "grid")
+                  .call(d3.axisLeft(yScale)
+                      .ticks(10)
+                  );
+                  
+              var barG = svgG.append("g");
+              /* 막대 표시 */    
+              barG.selectAll("rect")
+                  .data(dataset)
+                  .enter().append("rect")
+                      .attr("class", "bar")
+                      .attr("height", function(d, i) {return height-yScale(d.y)})
+                      .attr("width", xScale.bandwidth())
+                      .attr("x", function(d, i) {return xScale(d.x)})
+                      .attr("y", function(d, i) {return yScale(d.y)})
+                      .attr("fill", function(d) { return scale(d.x); })     
+              /* score 표시 */    
+              barG.selectAll("text")
+                  .data(dataset)
+                  .enter().append("text")
+                  .text(function(d) {return d.y})
+                      .attr("class", "text")
+                      .attr("x", function(d, i) {return xScale(d.x)+xScale.bandwidth()/2})
+                      .style("text-anchor", "middle")
+                      .attr("y", function(d, i) {return yScale(d.y) + 28});
+            </script>
+          </div>
         </div>
-      </div>
+      </section>
       <div id="piechart">
+        <script src="https://d3js.org/d3.v5.min.js"></script>
         <script>
           var width = 750, height = 500;
-          var colors = d3.scaleOrdinal(d3.schemeCategory20);
-          /* var colors = d3.scaleOrdinal(d3.schemeDark2); */
+          var colors = d3.scaleOrdinal(d3.schemeSet2);
+          /* var colors = d3.scaleOrdinal(d3.schemeCategory20,Dark2,Set2,Pastel1,Paired); */
           var svg = d3.select("#piechart").append("svg")
                       .attr("width", width)
                       .attr("height", height)
-/*                         .style("background", "pink"); */
+  /*                         .style("background", "pink"); */
           var details = [{keyword:"사람", number:"8"}, {keyword:"번영", number:"21"}, 
                          {keyword:"평화", number:"15"}, {keyword:"지구", number:"29"}, {keyword:"협력", number:"11"}];
           var data = d3.pie().sort(null).value(function(d) {return d.number;})(details);
           var segments = d3.arc()
                            .innerRadius(0)
                            .outerRadius(200)
-                           .padAngle(.05)
-                           .padRadius(50);
+                           /* .padAngle(0.05)
+                           .padRadius(50); */
           var sections = svg.append("g")
-                           .attr("transform", "translate(300, 250)")
-                           .selectAll("#piechart")
-                           .data(data);
+                            .attr("transform", "translate(300, 250)")
+                            .selectAll("path")
+                            .data(data);
           sections.enter().append("path")
                           .attr("d", segments)
-                          .attr("fill", function(d){ return colors(d.data.number);});
+                          .attr("fill", function(d){ return colors(d.data.number);})
+                          .attr("stroke", "white")
+                          .style("stroke-width", "2px")
           
-          var content = d3.select("g").selectAll("#piechart").data(data);
+          var content = d3.select("#piechart").select("g").selectAll("text").data(data);
           content.enter().append("text").classed("pie-inside", true).each(function(d) {
               var center = segments.centroid(d);
               d3.select(this).attr("x", center[0]).attr("y", center[1])
                              .text(d.data.number);
           });
-
+  
           var legends = svg.append("g")
-                           .attr("transform", "translate(580, 150)")
-                           .selectAll("#piechart").data(data);
+                           .attr("transform", "translate(600, 40)")
+                           .selectAll(".legends").data(data);
           var legend = legends.enter().append("g").classed("legends", true)
-                              .attr("transform", function(d,i) {return "translate(0," + (i+1)*30 + ")"});
+                              .attr("transform", function(d,i) {return "translate(0," + (i+1)*40 + ")"});
           legend.append("rect").attr("width", 20).attr("height", 20).attr("fill", function(d) {return colors(d.data.number);});
           legend.append("text").classed("pielabel", true).text(function(d) {return d.data.keyword;})
                 .attr("fill", function(d) {return colors(d.data.number);})
@@ -389,25 +419,44 @@
                 .attr("y", 20);
         </script>
       </div>
-    </section>
+    </main>
+    <div>
+      <svg id="key-legend">
+        <g>
+          <rect x="20" y="10" width="48" height="6" rx="4" fill="black"></rect>
+          <text x="84" y="17">현재 대학 점수</text>
+          <rect x="20" y="34" width="48" height="6" rx="4" fill="red"></rect>
+          <text x="84" y="41">해외 TOP 100 평균</text>
+          <rect x="20" y="58" width="48" height="6" rx="4" fill="blue"></rect>
+          <text x="84" y="65">국내 평균</text>
+        </g>
+      </svg>
+    </div>
     <article id="keyword-compare">
       <div class="key-graph">
         <p class="keyword">사람</p>
         <svg id="svg1"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
-          var data = [100, 30];
-          var color = ['white', 'orange'];
+          var data = [50, 30, 60];
+          var color = ['red', 'blue', 'black'];
   
           d3.select('#svg1')
-            .selectAll('rect').data(data).enter()  
             .append('rect').attr('rx', 1)
             .attr('height', 20)
-            .attr('y', (d, i) => 20)
+            .attr('width', 200)
+            .attr('y', 20)
+            .attr('fill', 'white');
+
+          d3.select('#svg1')
+            .append('g')
+            .selectAll('rect').data(data).enter()  
+            .append('rect').attr('rx', 4)
+            .attr('height', 48)
+            .attr('x', d => (d * 200)/100 + 14)
+            .attr('y', 6)
             .attr('class', (d, i) => color[i])
-/*             .attr('width', 10)
-            .transition().duration(1500) */
-            .attr('width', d => (d * 200)/100);
+            .attr('width', 6);
           </script>
       </div>
       <div class="key-graph">
@@ -415,18 +464,25 @@
         <svg id="svg2"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
-          var data = [100, 70];
-          var color = ['white', 'orange'];
+          var data = [70, 40, 66];
+          var color = ['red', 'blue', 'black'];
   
           d3.select('#svg2')
-            .selectAll('rect').data(data).enter()  
             .append('rect').attr('rx', 1)
             .attr('height', 20)
-            .attr('y', (d, i) => 20)
+            .attr('width', 200)
+            .attr('y', 20)
+            .attr('fill', 'white');
+
+          d3.select('#svg2')
+            .append('g')
+            .selectAll('rect').data(data).enter()  
+            .append('rect').attr('rx', 4)
+            .attr('height', 48)
+            .attr('x', d => (d * 200)/100 + 14)
+            .attr('y', 6)
             .attr('class', (d, i) => color[i])
-/*             .attr('width', 10)
-            .transition().duration(1500) */
-            .attr('width', d => (d * 200)/100);
+            .attr('width', 6);
           </script>
       </div>
       <div class="key-graph">
@@ -434,18 +490,25 @@
         <svg id="svg3"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
-          var data = [100, 60];
-          var color = ['white', 'orange'];
+          var data = [40, 58, 68];
+          var color = ['red', 'blue', 'black'];
   
           d3.select('#svg3')
-            .selectAll('rect').data(data).enter()  
             .append('rect').attr('rx', 1)
             .attr('height', 20)
-            .attr('y', (d, i) => 20)
+            .attr('width', 200)
+            .attr('y', 20)
+            .attr('fill', 'white');
+
+          d3.select('#svg3')
+            .append('g')
+            .selectAll('rect').data(data).enter()  
+            .append('rect').attr('rx', 4)
+            .attr('height', 48)
+            .attr('x', d => (d * 200)/100 + 14)
+            .attr('y', 6)
             .attr('class', (d, i) => color[i])
-/*             .attr('width', 10)
-            .transition().duration(1500) */
-            .attr('width', d => (d * 200)/100);
+            .attr('width', 6);
           </script>
       </div>
       <div class="key-graph">
@@ -453,18 +516,25 @@
         <svg id="svg4"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
-          var data = [100, 20];
-          var color = ['white', 'orange'];
+          var data = [60, 68, 47];
+          var color = ['red', 'blue', 'black'];
   
           d3.select('#svg4')
-            .selectAll('rect').data(data).enter()  
             .append('rect').attr('rx', 1)
             .attr('height', 20)
-            .attr('y', (d, i) => 20)
+            .attr('width', 200)
+            .attr('y', 20)
+            .attr('fill', 'white');
+
+          d3.select('#svg4')
+            .append('g')
+            .selectAll('rect').data(data).enter()  
+            .append('rect').attr('rx', 4)
+            .attr('height', 48)
+            .attr('x', d => (d * 200)/100 + 14)
+            .attr('y', 6)
             .attr('class', (d, i) => color[i])
-/*             .attr('width', 10)
-            .transition().duration(1500) */
-            .attr('width', d => (d * 200)/100);
+            .attr('width', 6);
           </script>
       </div>
       <div class="key-graph">
@@ -472,18 +542,25 @@
         <svg id="svg5"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
-          var data = [100, 50];
-          var color = ['white', 'orange'];
+          var data = [80, 70, 88];
+          var color = ['red', 'blue', 'black'];
   
           d3.select('#svg5')
-            .selectAll('rect').data(data).enter()  
             .append('rect').attr('rx', 1)
             .attr('height', 20)
-            .attr('y', (d, i) => 20)
+            .attr('width', 200)
+            .attr('y', 20)
+            .attr('fill', 'white');
+
+          d3.select('#svg5')
+            .append('g')
+            .selectAll('rect').data(data).enter()  
+            .append('rect').attr('rx', 4)
+            .attr('height', 48)
+            .attr('x', d => (d * 200)/100 + 14)
+            .attr('y', 6)
             .attr('class', (d, i) => color[i])
-/*             .attr('width', 10)
-            .transition().duration(1500) */
-            .attr('width', d => (d * 200)/100);
+            .attr('width', 6);
           </script>
       </div>
     </article>
