@@ -88,9 +88,8 @@ body{
 .main-left {
     position: relative;
     width: 800px;
-    margin-right: 100px;
-    padding-right: 20px;
-    padding-left: 40px;
+    padding-right: 0px;
+    padding-left: 80px;
     text-align: left;
 }
 #intro {
@@ -98,7 +97,7 @@ body{
     font-weight: 280px;
     line-height: 1.2;  
     text-transform: uppercase;
-    margin-top: 200px;
+    margin-top: 40px;
     margin-left: 200px;
 }
 #intro-sub {
@@ -184,7 +183,7 @@ body{
     padding: 1em 2em;
     position: absolute;
     left: 440px;
-    top: 440px;
+    top: 300px;
     z-index: 1;
     color: black;
       margin-top:2rem;
@@ -226,9 +225,9 @@ body{
 }
 
 .main-img {
-    width: 540px;
-    height: 540px;
-    margin-top: 160px;
+    width: 880px;
+    height: 880px;
+    margin-top: -30px;
 }
 .university {
     height: 140px;
@@ -262,8 +261,8 @@ body{
     flex-wrap: wrap;
 }
 .about-img {
-    margin-left: 160px;
-    margin-top: 20px;
+    margin-left: 140px;
+    margin-top: 10px;
     width: 600px;
     height: 600ox;
 }
