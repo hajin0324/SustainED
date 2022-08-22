@@ -7,7 +7,15 @@
     padding: 0;
     font-family: "Sunflower", sans-serif;
 }
-
+a {
+    color: #ffaa17;
+    text-decoration: none;
+    background-color: transparent;
+    font-family: "Oswald", sans-serif;
+  }
+a:hover {
+    color: black;
+}
 h1 {
     margin-bottom: 10px;
     font-size: 50px;
@@ -15,41 +23,30 @@ h1 {
     font-weight: 500px;
     line-height: 1.2;
 }
-
 h6 {
+    font-family: "Oswald", sans-serif;
     margin-left: 62px;
 }
-
+body {
+    font-family: "Oswald", sans-serif;
+    background: #fff;
+}
 header {
     width: 1920px;
     display: block;
     background-color: white;
     margin-bottom: 20px;
 }
-
 nav {
     display: block;
 }
 
-a {
-  color: #FFAA17;
-  text-decoration: none;
-  background-color: transparent;
-}
 
-a:hover {
-    color: #ca8000;
-}
-
-body{
-    font-family: "Oswald", sans-serif;
-    background: #fff;
-}
 .menu-wrap {
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
-    padding: 45px 15px;
+    margin-top: 28px;
     margin-left: auto;
     align-items: center;
     display: flex;

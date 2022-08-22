@@ -10,18 +10,23 @@
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Sunflower&display=swap" rel="stylesheet">
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Sunflower&display=swap");
-      :root {
-        --main-font: "Sunflower", sans-serif;
-      }
-      text {
-        font-family: var(--main-font);
-      }
       * {
         margin: 0;
         padding: 0;
-        font-family: sans-serif;
+        font-family: "Sunflower", sans-serif;
+      }
+      a {
+        color: #ffaa17;
+        text-decoration: none;
+        background-color: transparent;
+        font-family: "Oswald", sans-serif;
+      }
+      a:hover {
+        color: black;
       }
       h1 {
         margin-bottom: 10px;
@@ -30,38 +35,25 @@
         font-weight: 500px;
         line-height: 1.2;
       }
-
       h6 {
         font-family: "Oswald", sans-serif;
         margin-left: 62px;
       }
-
+      body {
+        font-family: "Oswald", sans-serif;
+        background: #fff;
+      }
       header {
         width: 1920px;
         display: block;
         background-color: white;
         margin-bottom: 20px;
       }
-
       nav {
         display: block;
       }
 
-      a {
-        color: #ffaa17;
-        text-decoration: none;
-        background-color: transparent;
-      }
-
-      a:hover {
-        color: #ca8000;
-      }
-
-      body {
-        font-family: "Oswald", sans-serif;
-        background: #fff;
-      }
-
+      /* header */
       .des {
         position: relative;
         display: flex;
@@ -87,10 +79,9 @@
         color: black;
       }
       .menu-wrap {
-        font-family: "Oswald";
         font-weight: 400;
         text-transform: uppercase;
-        padding: 45px 15px;
+        margin-top: 28px;
         margin-left: auto;
         align-items: center;
         display: flex;
@@ -100,18 +91,15 @@
         margin-right: 80px;
         text-align: center;
         flex-grow: 1;
-        font-family: "Rubik", sans-serif;
-      }
-      .menu:hover {
-        color: #ca8000;
       }
 
+      /* 학교 */
       .university {
-        font-family: "Oswald", sans-serif;
+        font-family: "Sunflower", sans-serif;
         width: 1920px;
         height: 140px;
         padding-left: 20px;
-        padding-top: 50px;
+        padding-top: 68px;
         margin-bottom: 30px;
         font-size: 60px;
         font-weight: 400px;
@@ -134,10 +122,11 @@
       }
       #impact {
         width: 400px;
-        font-size: 40px;
+        font-family: "Oswald", sans-serif;
+        font-size: 34px;
         position: absolute;
-        top: 410px;
-        left: 280px;
+        top: 520px;
+        left: 290px;
       }
       #score {
         border: 4px solid #ffaa17;
@@ -145,6 +134,7 @@
         height: 70px;
         padding-top: 16px;
         text-align: center;
+        font-family: "Sunflower", sans-serif;
         font-size: 48px;
         margin-top: 148px;
         margin-left: 68px;
@@ -152,12 +142,16 @@
       #myGraph {
         position: absolute;
         left: 580px;
-        top: 468px;
+        top: 484px;
         width: 300px;
-        height: 300px;
+        height: 310px;
       }
       #myGraph svg {
         border: 1px solid;
+      }
+      #myGraph text {
+        font-family: "Oswald", sans-serif;
+        font-size: 16px;
       }
       .bar {
         fill: #ffaa17;
@@ -165,15 +159,17 @@
       .bar:hover {
         fill: #ffcf7d;
       }
-      .score-text {
+      .scoreText {
         fill: white;
+        font-family: "Oswald", sans-serif;
+        font-size: 18px;
         font-weight: bold;
       }
 
       /* 파이차트 */
       #piechart {
         position: absolute;
-        top: 368px;
+        top: 384px;
         left: 968px;
         text-align: center;
       }
@@ -187,18 +183,19 @@
         font-weight: bold;
         line-height: 2px;
       }
+
       /* 키워드 차트 */
       #key-legend {
         width: 800px;
         height: 80px;
         position: absolute;
-        top: 834px;
+        top: 854px;
         left: 60px;
+        font-family: "Sunflower", sans-serif;
       }
       #key-legend text {
         font-size: 16px;
         font-family: "Sunflower", sans-serif;
-        font-weight: 100px;
       }
       #keyword-compare {
         text-align: center;
@@ -213,7 +210,9 @@
         color: black;
         width: 180px;
         height: 40px;
+        font-family: "Sunflower", sans-serif;
         font-size: 22px;
+        font-weight: bold;
         padding-top: 20px;
         margin: 0 0 28px 102px;
       }
@@ -250,11 +249,12 @@
       .keyGraphName {
         background-color: bisque;
         border-radius: 8px;
-        margin-left: 20px;
+        margin: 0 20px 20px 0;
         width: 220px;
         height: 40px;
         padding-top: 10px;
         text-align: center;
+        font-family: "Sunflower", sans-serif;
       }
       #last1, #last2 {
         margin-top: 20px;
@@ -276,6 +276,10 @@
       #myGraph1, #myGraph2 {
         padding-top: 20px;
         padding-left: 30px;
+      }
+      #myGraph1 text, #myGraph2 text{
+        font-family: "Sunflower", sans-serif;
+        font-size: 14px;
       }
       .barNum {
         font-size: 9pt;
@@ -332,7 +336,7 @@
               ];
               var svg = d3.select("#myGraph");
               var width = parseInt(svg.style("width"), 10) - 30;
-              var height = parseInt(svg.style("height"), 10) - 20;
+              var height = parseInt(svg.style("height"), 10) - 30;
               var svgG = svg.append("g").attr("transform", "translate(30, 0)");
 
               var xScale = d3
@@ -391,7 +395,7 @@
                 .text(function (d) {
                   return d.y;
                 })
-                .attr("class", "score-text")
+                .attr("class", "scoreText")
                 .attr("x", function (d, i) {
                   return xScale(d.x) + xScale.bandwidth() / 2;
                 })
@@ -788,7 +792,7 @@
                 .attr("y", function (d, i) {
                   //X좌표 지정
                   return (
-                    i * (barHeight + barMargin) + (barHeight / 2 + barMargin)
+                    i * (barHeight + barMargin) + (barHeight / 2 + barMargin) + 8
                   ); //막대그래프의 표시 간격을 맞춤
                 })
                 .attr("x", 0)
@@ -898,7 +902,7 @@
                 .attr("y", function (d, i) {
                   //X좌표 지정
                   return (
-                    i * (barHeight + barMargin) + (barHeight / 2 + barMargin)
+                    i * (barHeight + barMargin) + (barHeight / 2 + barMargin) + 8
                   ); //막대그래프의 표시 간격을 맞춤
                 })
                 .attr("x", 0)
