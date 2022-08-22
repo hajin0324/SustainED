@@ -251,10 +251,8 @@
         padding-left: 24px;
         margin: -6px 60px; 
       }
-      .white { fill: #fff; }
       .blue { fill: blue; }
       .red { fill: red; }
-      .black { fill: black; }
 
 
       /* 키워드 그래프 */
@@ -321,7 +319,7 @@
             <svg id="myGraph"></svg>
             <script src="https://d3js.org/d3.v4.min.js"></script>
             <script>
-              var dataset = [{x:'2020', y:85 }, {x:'2021', y:89}, {x:'2022', y:95.9}];
+              var dataset = [{x:'2020', y:85 }, {x:'2021', y:89}, {x:'2022', y:95.8}];
               var svg = d3.select("#myGraph");
               var width  = parseInt(svg.style("width"), 10) -30;
               var height = parseInt(svg.style("height"), 10) -20;
@@ -438,8 +436,8 @@
         <svg id="svg1"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
-          var data = [50, 30, 60];
-          var color = ['red', 'blue', 'black'];
+          var data = [50, 30];
+          var color = ['red', 'blue'];
   
           d3.select('#svg1')
             .append('rect').attr('rx', 1)
@@ -447,6 +445,13 @@
             .attr('width', 200)
             .attr('y', 20)
             .attr('fill', 'white');
+          
+          d3.select('#svg1')
+            .append('rect').attr('rx', 1)
+            .attr('height', 20)
+            .attr('width', (80 * 200)/100)
+            .attr('y', 20)
+            .attr('fill', 'green');
 
           d3.select('#svg1')
             .append('g')
@@ -464,8 +469,8 @@
         <svg id="svg2"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
-          var data = [70, 40, 66];
-          var color = ['red', 'blue', 'black'];
+          var data = [70, 40];
+          var color = ['red', 'blue'];
   
           d3.select('#svg2')
             .append('rect').attr('rx', 1)
@@ -473,6 +478,13 @@
             .attr('width', 200)
             .attr('y', 20)
             .attr('fill', 'white');
+
+          d3.select('#svg2')
+            .append('rect').attr('rx', 1)
+            .attr('height', 20)
+            .attr('width', (66 * 200)/100)
+            .attr('y', 20)
+            .attr('fill', 'green');
 
           d3.select('#svg2')
             .append('g')
@@ -490,8 +502,8 @@
         <svg id="svg3"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
-          var data = [40, 58, 68];
-          var color = ['red', 'blue', 'black'];
+          var data = [40, 58];
+          var color = ['red', 'blue'];
   
           d3.select('#svg3')
             .append('rect').attr('rx', 1)
@@ -499,6 +511,13 @@
             .attr('width', 200)
             .attr('y', 20)
             .attr('fill', 'white');
+
+          d3.select('#svg3')
+            .append('rect').attr('rx', 1)
+            .attr('height', 20)
+            .attr('width', (68 * 200)/100)
+            .attr('y', 20)
+            .attr('fill', 'green');
 
           d3.select('#svg3')
             .append('g')
@@ -516,8 +535,8 @@
         <svg id="svg4"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
-          var data = [60, 68, 47];
-          var color = ['red', 'blue', 'black'];
+          var data = [60, 68];
+          var color = ['red', 'blue'];
   
           d3.select('#svg4')
             .append('rect').attr('rx', 1)
@@ -525,6 +544,13 @@
             .attr('width', 200)
             .attr('y', 20)
             .attr('fill', 'white');
+
+          d3.select('#svg4')
+            .append('rect').attr('rx', 1)
+            .attr('height', 20)
+            .attr('width', (47 * 200)/100)
+            .attr('y', 20)
+            .attr('fill', 'green');
 
           d3.select('#svg4')
             .append('g')
@@ -542,8 +568,8 @@
         <svg id="svg5"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
-          var data = [80, 70, 88];
-          var color = ['red', 'blue', 'black'];
+          var data = [80, 70];
+          var color = ['red', 'blue'];
   
           d3.select('#svg5')
             .append('rect').attr('rx', 1)
@@ -551,6 +577,13 @@
             .attr('width', 200)
             .attr('y', 20)
             .attr('fill', 'white');
+
+          d3.select('#svg5')
+            .append('rect').attr('rx', 1)
+            .attr('height', 20)
+            .attr('width', (88 * 200)/100)
+            .attr('y', 20)
+            .attr('fill', 'green');
 
           d3.select('#svg5')
             .append('g')
@@ -568,6 +601,7 @@
       <div class="last">
         <p>한국 대학 그래프</p>
         <svg id="myGraph1"></svg>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
         <script>
           d3.csv("CSV/data2 copy.csv", function(error, data) {
               var dataSet = []; //데이터를 저장할 배열 변수
@@ -649,6 +683,7 @@
       <div class="last">
         <P>해외 대학 그래프</P>
         <svg id="myGraph2"></svg>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
         <script>
           d3.csv("CSV/data2.csv", function(error, data) {
             var dataSet = []; //데이터를 저장할 배열 변수
