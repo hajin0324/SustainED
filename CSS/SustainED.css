@@ -88,7 +88,7 @@ body{
 .main-left {
     position: relative;
     width: 800px;
-    padding-right: 0px;
+    margin-right: 80px;
     padding-left: 80px;
     text-align: left;
 }
@@ -97,7 +97,7 @@ body{
     font-weight: 280px;
     line-height: 1.2;  
     text-transform: uppercase;
-    margin-top: 40px;
+    margin-top: 200px;
     margin-left: 200px;
 }
 #intro-sub {
@@ -182,8 +182,8 @@ body{
 #move{
     padding: 1em 2em;
     position: absolute;
-    left: 440px;
-    top: 300px;
+    left: 470px;
+    top: 448px;
     z-index: 1;
     color: black;
       margin-top:2rem;
@@ -225,9 +225,9 @@ body{
 }
 
 .main-img {
-    width: 880px;
-    height: 880px;
-    margin-top: -30px;
+    width: 600px;
+    height: 600px;
+    margin-top: 100px;
 }
 .university {
     height: 140px;
