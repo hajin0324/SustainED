@@ -243,12 +243,13 @@ body{
 /* 5p.html */
 #p1 {
     margin-top: 50px;
-    margin-left: 220px;
+    margin-left: 160px;
   }
 #p2 {
+    width: 1000px;
     position: absolute;
-    top: 510px;
-    left: 880px;
+    top: 500px;
+    left: 780px;
 }
 
 /* about.html */
