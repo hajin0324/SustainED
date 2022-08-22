@@ -376,7 +376,7 @@
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script>
           var width = 750, height = 500;
-          var colors = d3.scaleOrdinal(d3.schemeSet2);
+          var colors = d3.scaleOrdinal(d3.schemeCategory20);
           /* var colors = d3.scaleOrdinal(d3.schemeCategory20,Dark2,Set2,Pastel1,Paired); */
           var svg = d3.select("#piechart").append("svg")
                       .attr("width", width)
@@ -434,7 +434,7 @@
     </div>
     <article id="keyword-compare">
       <div class="key-graph">
-        <p class="keyword">사람</p>
+        <p class="keyword">PROSPERITY</p>
         <svg id="svg1"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
@@ -460,7 +460,7 @@
           </script>
       </div>
       <div class="key-graph">
-        <p class="keyword">지구</p>
+        <p class="keyword">PEOPLE</p>
         <svg id="svg2"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
@@ -486,7 +486,7 @@
           </script>
       </div>
       <div class="key-graph">
-        <p class="keyword">번영</p>
+        <p class="keyword">PEACE</p>
         <svg id="svg3"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
@@ -512,7 +512,7 @@
           </script>
       </div>
       <div class="key-graph">
-        <p class="keyword">평화</p>
+        <p class="keyword">PARTNERSHIP</p>
         <svg id="svg4"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
@@ -538,7 +538,7 @@
           </script>
       </div>
       <div class="key-graph">
-        <p class="keyword">협력</p>
+        <p class="keyword">PLANET</p>
         <svg id="svg5"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
@@ -568,12 +568,164 @@
       <div class="last">
         <p>한국 대학 그래프</p>
         <svg id="myGraph1"></svg>
-        <script src="JS/KUNI.js"></script>
+        <script>
+          d3.csv("CSV/data2 copy.csv", function(error, data) {
+              var dataSet = []; //데이터를 저장할 배열 변수
+              var labelName = []; //레이블을 넣을 배열 변수
+              for ( var i in data[0]) { //최초의 데이터만 처리
+                  dataSet.push(data[0][i]); //가로 한 줄 모두를 한꺼번에 넣음
+                  labelName.push(i); //레이블 넣음
+              }
+          
+              //SVG요소의 넓이와 높이를 구함
+              var svgEle = document.getElementById("myGraph1");
+              var svgWidth = window.getComputedStyle(svgEle, null).
+              getPropertyValue("width");
+              var svgHeight = window.getComputedStyle(svgEle, null).
+              getPropertyValue("height");
+              //https://developer.mozilla.org/ko/docs/Web/API/Window/getComputedStyle
+              svgWidth = parseFloat(svgWidth); //값은 단위가 있으므로 단위를 삭제
+              svgHeight = parseFloat(svgHeight); //값은 단위가 있으므로 단위를 삭제
+          
+              //그래프에 사용할 변수
+              var barElements; //막대그래프의 막대 요소를 저장할 변수
+              var dataMax = 400; //데이터의 최댓값
+              var barHeight = 20; //막대의 넓이
+              var barMargin = 15; //막대의 옆 간격
+          
+              //그래프 그리기(그래프 옵션)
+              barElements = d3.select("#myGraph1")
+              .selectAll("rect") //rect 요소를 지정
+              .data(dataSet) //데이터를 요소에 연결
+          
+              //데이터가 추가될 때
+              barElements.enter() //데이터 개수 만큼 반복
+              .append("rect") //데이터 개수만큼 rect 요소가 추가됨
+              .attr("class", "bar") //CSS 클래스를 지정
+              .attr("width", 0) //초깃값 0으로 설정
+              .attr("height", barHeight) //넓이 지정
+              .attr("x", 70)
+              .attr("y", function(d, i) { //X 좌표를 지정함
+                  //X좌표를 표시 순서
+                  return i * (barHeight + barMargin) + barMargin; //처음 Y축과 간격
+              })
+          
+              //애니메이션 처리
+              .transition()
+              .duration(1000) //1초동안 애니메이션 처리
+              .delay(function(d, i) {
+                  return i * 400; //0.4초 대기
+              })
+              .attr("x", function(d, i) { //Y 좌표를 지정
+                  return 70; //Y 좌표를 계산
+              })
+              .attr("width", function(d, i) { //넓이설정.2번째의 파라미터에 함수지정
+                  return d; //데이터 값을 그대로 높이로 지정
+              })
+
+              //막대의 레이블을 표시
+              barElements.enter()
+              .append("text")
+              .attr("class", "barName")
+              .attr("y", function(d, i) { //X좌표 지정
+                  return i * (barHeight + barMargin) + (barHeight/2 + barMargin); //막대그래프의 표시 간격을 맞춤
+              })
+              .attr("x", 0)
+              .text(function(d, i) {
+                  return labelName[i]; //레이블 이름을 반환
+              })
+
+              //가로(X축) 방향의 선을 표시
+              d3.select("#myGraph1")
+              .append("rect")
+              .attr("class", "axis_y")
+              .attr("height", svgHeight)
+              .attr("width", "1")
+              .attr("x", 70)
+
+          });
+        </script>
       </div>
       <div class="last">
         <P>해외 대학 그래프</P>
         <svg id="myGraph2"></svg>
-        <script src="JS/BUNI.js"></script>
+        <script>
+          d3.csv("CSV/data2.csv", function(error, data) {
+            var dataSet = []; //데이터를 저장할 배열 변수
+            var labelName = []; //레이블을 넣을 배열 변수
+            for ( var i in data[0]) { //최초의 데이터만 처리
+                dataSet.push(data[0][i]); //가로 한 줄 모두를 한꺼번에 넣음
+                labelName.push(i); //레이블 넣음
+            }
+        
+            //SVG요소의 넓이와 높이를 구함
+            var svgEle = document.getElementById("myGraph2");
+            var svgWidth = window.getComputedStyle(svgEle, null).
+            getPropertyValue("width");
+            var svgHeight = window.getComputedStyle(svgEle, null).
+            getPropertyValue("height");
+            //https://developer.mozilla.org/ko/docs/Web/API/Window/getComputedStyle
+            svgWidth = parseFloat(svgWidth); //값은 단위가 있으므로 단위를 삭제
+            svgHeight = parseFloat(svgHeight); //값은 단위가 있으므로 단위를 삭제
+        
+            //그래프에 사용할 변수
+            var barElements; //막대그래프의 막대 요소를 저장할 변수
+            var dataMax = 400; //데이터의 최댓값
+            var barHeight = 20; //막대의 넓이
+            var barMargin = 15; //막대의 옆 간격
+        
+            //그래프 그리기(그래프 옵션)
+            barElements = d3.select("#myGraph2")
+            .selectAll("rect") //rect 요소를 지정
+            .data(dataSet) //데이터를 요소에 연결
+        
+            //데이터가 추가될 때
+            barElements.enter() //데이터 개수 만큼 반복
+            .append("rect") //데이터 개수만큼 rect 요소가 추가됨
+            .attr("class", "bar") //CSS 클래스를 지정
+            .attr("width", 0) //초깃값 0으로 설정
+            .attr("height", barHeight) //넓이 지정
+            .attr("x", 70)
+            .attr("y", function(d, i) { //X 좌표를 지정함
+                //X좌표를 표시 순서
+                return i * (barHeight + barMargin) + barMargin; //처음 Y축과 간격
+            })
+        
+            //애니메이션 처리
+            .transition()
+            .duration(1000) //1초동안 애니메이션 처리
+            .delay(function(d, i) {
+                return i * 400; //0.4초 대기
+            })
+            .attr("x", function(d, i) { //Y 좌표를 지정
+                return 70; //Y 좌표를 계산
+            })
+            .attr("width", function(d, i) { //넓이설정.2번째의 파라미터에 함수지정
+                return d; //데이터 값을 그대로 높이로 지정
+            })
+
+            //막대의 레이블을 표시
+            barElements.enter()
+            .append("text")
+            .attr("class", "barName")
+            .attr("y", function(d, i) { //X좌표 지정
+                return i * (barHeight + barMargin) + (barHeight/2 + barMargin); //막대그래프의 표시 간격을 맞춤
+            })
+            .attr("x", 0)
+            .text(function(d, i) {
+                return labelName[i]; //레이블 이름을 반환
+            })
+
+            //가로(X축) 방향의 선을 표시
+            d3.select("#myGraph2")
+            .append("rect")
+            .attr("class", "axis_y")
+            .attr("height", svgHeight)
+            .attr("width", "1")
+            .attr("x", 70)
+
+        });
+        </script>
       </div>
       <p class="last active">해외 대학 활동sdjlkjfl;asjflsdfjasdfjlsdjflsjdfljsdlfjldsfjlskdjflksjdkkkdkdkkdkdkdkdkkdkdkkdfsdfsd sdsfsdj ldjflsdf lksdjfldjfk</p>
     </footer>
