@@ -188,7 +188,7 @@
         height: 80px;
         position: absolute;
         top: 834px;
-        left: 40px;
+        left: 60px;
       }
       #key-legend text {
         font-size: 16px;
@@ -293,8 +293,8 @@
         <a href="index.html"><h1 class="name">SUSTAINED</h1></a>
         <div class="menu-wrap">
           <p class="menu"><a href="about.html">ABOUT SDGS</a></p>
-          <p class="menu"><a href="17Goals.html">OUR 17 GOALS</a></p>
-          <p class="menu"><a href="5p.html">WHAT IS 5P</a></p>
+          <p class="menu"><a href="goals.html">OUR 17 GOALS</a></p>
+          <p class="menu"><a href="fivep.html">WHAT IS 5P</a></p>
           <p class="menu"><a href="related.html">RELATED SITES</a></p>
         </div>
       </nav>
@@ -417,19 +417,19 @@
           <rect x="20" y="65" width="48" height="8" fill="#9ACA7C"></rect>
           <text x="80" y="73">현재 대학 점수</text>
           <rect x="200" y="65" width="48" height="8" fill="red"></rect>
-          <text x="260" y="73">해외 TOP 100 평균</text>
-          <rect x="420" y="65" width="48" height="8" fill="blue"></rect>
-          <text x="480" y="73">국내 평균</text>
+          <text x="260" y="73">해외 TOP 50 평균</text>
+          <rect x="400" y="65" width="48" height="8" fill="blue"></rect>
+          <text x="460" y="73">국내 평균</text>
         </g>
       </svg>
     </div>
     <article id="keyword-compare">
       <div class="key-graph">
-        <p class="keyword">PROSPERITY</p>
+        <p class="keyword">PEOPLE</p>
         <svg id="svg1"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
-          var data = [50, 30];
+          var data = [80.1, 64.2];
           var color = ['red', 'blue'];
   
           d3.select('#svg1')
@@ -447,105 +447,6 @@
             .attr('fill', '#9ACA7C');
 
           d3.select('#svg1')
-            .append('g')
-            .selectAll('rect').data(data).enter()  
-            .append('rect')
-            .attr('height', 26)
-            .attr('x', d => (d * 260)/100)
-            .attr('y', 20)
-            .attr('class', (d, i) => color[i])
-            .attr('width', 4);
-          </script>
-      </div>
-      <div class="key-graph">
-        <p class="keyword">PEOPLE</p>
-        <svg id="svg2"></svg>
-        <script src="http://d3js.org/d3.v3.js"></script>
-        <script>
-          var data = [70, 40];
-          var color = ['red', 'blue'];
-  
-          d3.select('#svg2')
-            .append('rect').attr('rx', 1)
-            .attr('height', 26)
-            .attr('width', 260)
-            .attr('y', 20)
-            .attr('fill', '#E6E6E6');
-          
-          d3.select('#svg2')
-            .append('rect').attr('rx', 1)
-            .attr('height', 26)
-            .attr('width', (80 * 260)/100)
-            .attr('y', 20)
-            .attr('fill', '#9ACA7C');
-
-          d3.select('#svg2')
-            .append('g')
-            .selectAll('rect').data(data).enter()  
-            .append('rect')
-            .attr('height', 26)
-            .attr('x', d => (d * 260)/100)
-            .attr('y', 20)
-            .attr('class', (d, i) => color[i])
-            .attr('width', 4);
-          </script>
-      </div>
-      <div class="key-graph">
-        <p class="keyword">PEACE</p>
-        <svg id="svg3"></svg>
-        <script src="http://d3js.org/d3.v3.js"></script>
-        <script>
-          var data = [40, 58];
-          var color = ['red', 'blue'];
-  
-          d3.select('#svg3')
-            .append('rect').attr('rx', 1)
-            .attr('height', 26)
-            .attr('width', 260)
-            .attr('y', 20)
-            .attr('fill', '#E6E6E6');
-          
-          d3.select('#svg3')
-            .append('rect').attr('rx', 1)
-            .attr('height', 26)
-            .attr('width', (80 * 260)/100)
-            .attr('y', 20)
-            .attr('fill', '#9ACA7C');
-
-          d3.select('#svg3')
-            .append('g')
-            .selectAll('rect').data(data).enter()  
-            .append('rect')
-            .attr('height', 26)
-            .attr('x', d => (d * 260)/100)
-            .attr('y', 20)
-            .attr('class', (d, i) => color[i])
-            .attr('width', 4);
-          </script>
-      </div>
-      <div class="key-graph">
-        <p class="keyword">PARTNERSHIP</p>
-        <svg id="svg4"></svg>
-        <script src="http://d3js.org/d3.v3.js"></script>
-        <script>
-          var data = [60, 68];
-          var color = ['red', 'blue'];
-  
-          d3.select('#svg4')
-            .append('rect').attr('rx', 1)
-            .attr('height', 26)
-            .attr('width', 260)
-            .attr('y', 20)
-            .attr('fill', '#E6E6E6');
-          
-          d3.select('#svg4')
-            .append('rect').attr('rx', 1)
-            .attr('height', 26)
-            .attr('width', (80 * 260)/100)
-            .attr('y', 20)
-            .attr('fill', '#9ACA7C');
-
-          d3.select('#svg4')
             .append('g')
             .selectAll('rect').data(data).enter()  
             .append('rect')
@@ -558,10 +459,109 @@
       </div>
       <div class="key-graph">
         <p class="keyword">PLANET</p>
+        <svg id="svg2"></svg>
+        <script src="http://d3js.org/d3.v3.js"></script>
+        <script>
+          var data = [83.9, 56.2];
+          var color = ['red', 'blue'];
+  
+          d3.select('#svg2')
+            .append('rect').attr('rx', 1)
+            .attr('height', 26)
+            .attr('width', 260)
+            .attr('y', 20)
+            .attr('fill', '#E6E6E6');
+          
+          d3.select('#svg2')
+            .append('rect').attr('rx', 1)
+            .attr('height', 26)
+            .attr('width', (80 * 260)/100)
+            .attr('y', 20)
+            .attr('fill', '#9ACA7C');
+
+          d3.select('#svg2')
+            .append('g')
+            .selectAll('rect').data(data).enter()  
+            .append('rect')
+            .attr('height', 26)
+            .attr('x', d => (d * 260)/100)
+            .attr('y', 20)
+            .attr('class', (d, i) => color[i])
+            .attr('width', 4);
+          </script>
+      </div>
+      <div class="key-graph">
+        <p class="keyword">PROSPERITY</p>
+        <svg id="svg3"></svg>
+        <script src="http://d3js.org/d3.v3.js"></script>
+        <script>
+          var data = [83.8, 56.2];
+          var color = ['red', 'blue'];
+  
+          d3.select('#svg3')
+            .append('rect').attr('rx', 1)
+            .attr('height', 26)
+            .attr('width', 260)
+            .attr('y', 20)
+            .attr('fill', '#E6E6E6');
+          
+          d3.select('#svg3')
+            .append('rect').attr('rx', 1)
+            .attr('height', 26)
+            .attr('width', (80 * 260)/100)
+            .attr('y', 20)
+            .attr('fill', '#9ACA7C');
+
+          d3.select('#svg3')
+            .append('g')
+            .selectAll('rect').data(data).enter()  
+            .append('rect')
+            .attr('height', 26)
+            .attr('x', d => (d * 260)/100)
+            .attr('y', 20)
+            .attr('class', (d, i) => color[i])
+            .attr('width', 4);
+          </script>
+      </div>
+      <div class="key-graph">
+        <p class="keyword">PEACE</p>
+        <svg id="svg4"></svg>
+        <script src="http://d3js.org/d3.v3.js"></script>
+        <script>
+          var data = [84.7, 65];
+          var color = ['red', 'blue'];
+  
+          d3.select('#svg4')
+            .append('rect').attr('rx', 1)
+            .attr('height', 26)
+            .attr('width', 260)
+            .attr('y', 20)
+            .attr('fill', '#E6E6E6');
+          
+          d3.select('#svg4')
+            .append('rect').attr('rx', 1)
+            .attr('height', 26)
+            .attr('width', (80 * 260)/100)
+            .attr('y', 20)
+            .attr('fill', '#9ACA7C');
+
+          d3.select('#svg4')
+            .append('g')
+            .selectAll('rect').data(data).enter()  
+            .append('rect')
+            .attr('height', 26)
+            .attr('x', d => (d * 260)/100)
+            .attr('y', 20)
+            .attr('class', (d, i) => color[i])
+            .attr('width', 4);
+          </script>
+      </div>
+      <div class="key-graph">
+        <p class="keyword">PARTNERSHIP</p>
         <svg id="svg5"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
-          var data = [80, 70];
+          var data = [94.4, 73];
           var color = ['red', 'blue'];
   
           d3.select('#svg5')
