@@ -184,14 +184,14 @@
       }
       /* 키워드 차트 */
       #key-legend {
-        width: 200px;
+        width: 800px;
         height: 80px;
         position: absolute;
         top: 834px;
         left: 40px;
       }
       #key-legend text {
-        font-size: 12px;
+        font-size: 16px;
         font-family: 'Sunflower', sans-serif;
         font-weight: 100px;
       }
@@ -212,13 +212,11 @@
         box-sizing: border-box;
         width: 384px;
         height: 180px;  
-        background-color: #FFAA17;
-        border-right: 1px dotted black;
       }
       #key-text{
-        font-size: 20px;
+        font-size: 28px;
         display:flex;
-        margin-left: 30px;
+        margin-left: 26px;
         margin-right: 30px;
       }
       .last {
@@ -232,23 +230,18 @@
         padding-top: 20px;
       }
       #svg1{
-        padding-left: 24px;
         margin: -6px 60px; 
       }
       #svg2{ 
-        padding-left: 24px;
         margin: -6px 60px; 
       }
       #svg3{ 
-        padding-left: 24px;
         margin: -6px 60px;  
       }
       #svg4{ 
-        padding-left: 24px;
         margin: -6px 60px; 
       }
       #svg5{ 
-        padding-left: 24px;
         margin: -6px 60px; 
       }
       .blue { fill: blue; }
@@ -262,7 +255,7 @@
       }
       #myGraph1 {
         padding-top: 20px;
-        padding-left: 30px;
+        padding-left: -20px;
 
       }
       #myGraph2 {
@@ -421,12 +414,12 @@
     <div>
       <svg id="key-legend">
         <g>
-          <rect x="20" y="10" width="48" height="6" rx="4" fill="black"></rect>
-          <text x="84" y="17">현재 대학 점수</text>
-          <rect x="20" y="34" width="48" height="6" rx="4" fill="red"></rect>
-          <text x="84" y="41">해외 TOP 100 평균</text>
-          <rect x="20" y="58" width="48" height="6" rx="4" fill="blue"></rect>
-          <text x="84" y="65">국내 평균</text>
+          <rect x="20" y="65" width="48" height="8" fill="#9ACA7C"></rect>
+          <text x="80" y="73">현재 대학 점수</text>
+          <rect x="200" y="65" width="48" height="8" fill="red"></rect>
+          <text x="260" y="73">해외 TOP 100 평균</text>
+          <rect x="420" y="65" width="48" height="8" fill="blue"></rect>
+          <text x="480" y="73">국내 평균</text>
         </g>
       </svg>
     </div>
@@ -441,27 +434,27 @@
   
           d3.select('#svg1')
             .append('rect').attr('rx', 1)
-            .attr('height', 20)
-            .attr('width', 200)
+            .attr('height', 26)
+            .attr('width', 260)
             .attr('y', 20)
-            .attr('fill', 'white');
+            .attr('fill', '#E6E6E6');
           
           d3.select('#svg1')
             .append('rect').attr('rx', 1)
-            .attr('height', 20)
-            .attr('width', (80 * 200)/100)
+            .attr('height', 26)
+            .attr('width', (80 * 260)/100)
             .attr('y', 20)
-            .attr('fill', '#ffeccc');
+            .attr('fill', '#9ACA7C');
 
           d3.select('#svg1')
             .append('g')
             .selectAll('rect').data(data).enter()  
-            .append('rect').attr('rx', 4)
-            .attr('height', 48)
-            .attr('x', d => (d * 200)/100 + 14)
-            .attr('y', 6)
+            .append('rect')
+            .attr('height', 26)
+            .attr('x', d => (d * 260)/100)
+            .attr('y', 20)
             .attr('class', (d, i) => color[i])
-            .attr('width', 6);
+            .attr('width', 4);
           </script>
       </div>
       <div class="key-graph">
@@ -474,27 +467,27 @@
   
           d3.select('#svg2')
             .append('rect').attr('rx', 1)
-            .attr('height', 20)
-            .attr('width', 200)
+            .attr('height', 26)
+            .attr('width', 260)
             .attr('y', 20)
-            .attr('fill', 'white');
-
+            .attr('fill', '#E6E6E6');
+          
           d3.select('#svg2')
             .append('rect').attr('rx', 1)
-            .attr('height', 20)
-            .attr('width', (66 * 200)/100)
+            .attr('height', 26)
+            .attr('width', (80 * 260)/100)
             .attr('y', 20)
-            .attr('fill', 'green');
+            .attr('fill', '#9ACA7C');
 
           d3.select('#svg2')
             .append('g')
             .selectAll('rect').data(data).enter()  
-            .append('rect').attr('rx', 4)
-            .attr('height', 48)
-            .attr('x', d => (d * 200)/100 + 14)
-            .attr('y', 6)
+            .append('rect')
+            .attr('height', 26)
+            .attr('x', d => (d * 260)/100)
+            .attr('y', 20)
             .attr('class', (d, i) => color[i])
-            .attr('width', 6);
+            .attr('width', 4);
           </script>
       </div>
       <div class="key-graph">
@@ -507,27 +500,27 @@
   
           d3.select('#svg3')
             .append('rect').attr('rx', 1)
-            .attr('height', 20)
-            .attr('width', 200)
+            .attr('height', 26)
+            .attr('width', 260)
             .attr('y', 20)
-            .attr('fill', 'white');
-
+            .attr('fill', '#E6E6E6');
+          
           d3.select('#svg3')
             .append('rect').attr('rx', 1)
-            .attr('height', 20)
-            .attr('width', (68 * 200)/100)
+            .attr('height', 26)
+            .attr('width', (80 * 260)/100)
             .attr('y', 20)
-            .attr('fill', 'green');
+            .attr('fill', '#9ACA7C');
 
           d3.select('#svg3')
             .append('g')
             .selectAll('rect').data(data).enter()  
-            .append('rect').attr('rx', 4)
-            .attr('height', 48)
-            .attr('x', d => (d * 200)/100 + 14)
-            .attr('y', 6)
+            .append('rect')
+            .attr('height', 26)
+            .attr('x', d => (d * 260)/100)
+            .attr('y', 20)
             .attr('class', (d, i) => color[i])
-            .attr('width', 6);
+            .attr('width', 4);
           </script>
       </div>
       <div class="key-graph">
@@ -540,27 +533,27 @@
   
           d3.select('#svg4')
             .append('rect').attr('rx', 1)
-            .attr('height', 20)
-            .attr('width', 200)
+            .attr('height', 26)
+            .attr('width', 260)
             .attr('y', 20)
-            .attr('fill', 'white');
-
+            .attr('fill', '#E6E6E6');
+          
           d3.select('#svg4')
             .append('rect').attr('rx', 1)
-            .attr('height', 20)
-            .attr('width', (47 * 200)/100)
+            .attr('height', 26)
+            .attr('width', (80 * 260)/100)
             .attr('y', 20)
-            .attr('fill', 'green');
+            .attr('fill', '#9ACA7C');
 
           d3.select('#svg4')
             .append('g')
             .selectAll('rect').data(data).enter()  
-            .append('rect').attr('rx', 4)
-            .attr('height', 48)
-            .attr('x', d => (d * 200)/100 + 14)
-            .attr('y', 6)
+            .append('rect')
+            .attr('height', 26)
+            .attr('x', d => (d * 260)/100)
+            .attr('y', 20)
             .attr('class', (d, i) => color[i])
-            .attr('width', 6);
+            .attr('width', 4);
           </script>
       </div>
       <div class="key-graph">
@@ -573,27 +566,27 @@
   
           d3.select('#svg5')
             .append('rect').attr('rx', 1)
-            .attr('height', 20)
-            .attr('width', 200)
+            .attr('height', 26)
+            .attr('width', 260)
             .attr('y', 20)
-            .attr('fill', 'white');
-
+            .attr('fill', '#E6E6E6');
+          
           d3.select('#svg5')
             .append('rect').attr('rx', 1)
-            .attr('height', 20)
-            .attr('width', (88 * 200)/100)
+            .attr('height', 26)
+            .attr('width', (80 * 260)/100)
             .attr('y', 20)
-            .attr('fill', 'green');
+            .attr('fill', '#9ACA7C');
 
           d3.select('#svg5')
             .append('g')
             .selectAll('rect').data(data).enter()  
-            .append('rect').attr('rx', 4)
-            .attr('height', 48)
-            .attr('x', d => (d * 200)/100 + 14)
-            .attr('y', 6)
+            .append('rect')
+            .attr('height', 26)
+            .attr('x', d => (d * 260)/100)
+            .attr('y', 20)
             .attr('class', (d, i) => color[i])
-            .attr('width', 6);
+            .attr('width', 4);
           </script>
       </div>
     </article>
