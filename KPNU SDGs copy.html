@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <title>ESG</title>
-    <script src="JS/jquery.js"></script>
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet">
@@ -214,13 +213,13 @@
         padding-top: 20px;  
         margin: 0 0 28px 102px;
       }
-      .keygraph {
+      .keygraph{
         cursor: pointer;
         box-sizing: border-box;
         width: 384px;
         height: 140px;  
       }
-      .keygraph:hover {
+      .keygraph:hover{
         background-color: antiquewhite;
         color: black;
       }
@@ -434,7 +433,7 @@
       </svg>
     </div>
     <article id="keyword-compare">
-      <button class="keygraph" value="people">
+      <button class="keygraph" href="KPNU SDGs.html">
         <p class="keyword">사람</p>
         <svg id="svg1"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
@@ -467,7 +466,7 @@
             .attr('width', 4);
           </script>
       </button>
-      <button class="keygraph" value="earth">
+      <button class="keygraph" href="KPNU SDGs.html">
         <p class="keyword">지구</p>
         <svg id="svg2"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
@@ -500,7 +499,7 @@
             .attr('width', 4);
           </script>
       </button>
-      <button class="keygraph" value="prosperity">
+      <button class="keygraph" href="KPNU SDGs.html">
         <p class="keyword">번영</p>
         <svg id="svg3"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
@@ -533,7 +532,7 @@
             .attr('width', 4);
           </script>
       </button>
-      <button class="keygraph" value="peace">
+      <button class="keygraph" href="KPNU SDGs.html">
         <p class="keyword">평화</p>
         <svg id="svg4"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
@@ -566,7 +565,7 @@
             .attr('width', 4);
           </script>
       </button>
-      <button class="keygraph" value="partnership">
+      <button class="keygraph" href="KPNU SDGs.html">
         <p class="keyword">협력</p>
         <svg id="svg5"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
@@ -607,9 +606,8 @@
         <svg id="myGraph1"></svg>
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script>
-          var kuni = 'csv'; 
 
-          d3.csv("CSV/" + kuni + ".csv", function(error, data) {
+          d3.csv("CSV/data2 copy.csv", function(error, data) {
               var dataSet = []; //데이터를 저장할 배열 변수
               var labelName = []; //레이블을 넣을 배열 변수
               for ( var i in data[0]) { //최초의 데이터만 처리
@@ -691,9 +689,9 @@
         <svg id="myGraph2"></svg>
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script>
-          var ouni = 'csv';
+        
 
-          d3.csv("CSV/" + ouni + ".csv", function(error, data) {
+          d3.csv("CSV/data2.csv", function(error, data) {
             var dataSet = []; //데이터를 저장할 배열 변수
             var labelName = []; //레이블을 넣을 배열 변수
             for ( var i in data[0]) { //최초의 데이터만 처리
@@ -772,26 +770,5 @@
       </div>
       <p class="last active">해외 대학 활동sdjlkjfl;asjflsdfjasdfjlsdjflsjdfljsdlfjldsfjlskdjflksjdkkkdkdkkdkdkdkdkkdkdkkdfsdfsd sdsfsdj ldjflsdf lksdjfldjfk</p>
     </footer>
-
-    <script>
-      keygraph.onclick = function(){
-        var key = document.getElementsByClassName("keygraph").value
-        if (key == 'people')
-          kuni = 'people'
-          ouni = 'people'
-        else if (key == 'earth')
-          kuni = 'earth'
-          ouni = 'earth'
-        else if (key == 'prosperity')
-          kuni = 'prosperity'
-          ouni = 'prosperity'
-        else if (key == 'peace')
-          kuni = 'peace'
-          ouni = 'peace'
-        else if (key == 'partnership')
-          kuni = 'partnership'
-          ouni = 'partnership'
-      }
-    </script>
   </body>
 </html>
