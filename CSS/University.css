@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One&family=Gowun+Dodum&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -108,10 +109,10 @@
   #impact {
     font-family: 'Alumni Sans Inline One', cursive;
     width: 400px;
-    font-size: 34px;
+    font-size: 38px;
     position: absolute;
-    top: 420px;
-    left: 260px;
+    top: 440px;
+    left: 280px;
   }
   #score {
     font-family: 'Do Hyeon', sans-serif;
@@ -189,8 +190,8 @@
     width: 1920px;
     height: 140px;
     display: flex;
-    padding-top: 160px;
-    margin-bottom: 40px;
+    padding-top: 120px;
+    margin-bottom: 80px;
   }
   .keyword {
     color: black;
@@ -237,10 +238,13 @@
     background-color: #d9e5f3;
     border-radius: 8px;
     margin: 0 20px 20px 0;
-    width: 280px;
+    width: 320px;
     height: 40px;
     text-align: center;
     font-family: "Gowun Dodum", sans-serif;
+  }
+  #reload {
+    display: flex;
   }
   #last1, #last2, #last3 {
     margin-top: 20px;

@@ -33,7 +33,7 @@ header {
     width: 1920px;
     display: block;
     background-color: white;
-    margin-bottom: 20px;
+    margin: auto;
 }
 nav {
     display: block;
@@ -65,8 +65,7 @@ nav {
     height: 800px;
     padding-right: 15px;
     padding-left: 15px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }
 .main-position {
     padding-top: 3rem;

@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Sunflower&display=swap" rel="stylesheet"> 
 
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One:ital@1&family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
@@ -27,22 +30,22 @@
       <hr>
     </header>
 
-    <h2 class="university">경북대학교 SDGs 분석 결과</h2>
+    <h2 class="university">충남대학교 SDGs 분석 결과</h2>
     <main>
       <section id="ranking">
         <p id="impact">Impact ranking score</p>
         <div id="content">
           <div>
-            <p id="score">95.8점</p>
+            <p id="score">88.5점</p>
           </div>
           <div>
             <svg id="myGraph"></svg>
             <script src="https://d3js.org/d3.v4.min.js"></script>
             <script>
               var dataset = [
-                { x: "2020", y: 83.4 },
-                { x: "2021", y: 89.3 },
-                { x: "2022", y: 95.8 },
+                { x: "2020", y: 75.3 },
+                { x: "2021", y: 77.4 },
+                { x: "2022", y: 88.5 }
               ];
               var svg = d3.select("#myGraph");
               var width = parseInt(svg.style("width"), 10) - 30;
@@ -60,7 +63,7 @@
                 .padding(0.4);
               var yScale = d3
                 .scaleLinear()
-                .domain([60, 100])
+                .domain([0, 100])
                 .range([height, 10]);
 
               var scale = d3.scaleOrdinal().range(["#FFAA17"]);
@@ -132,10 +135,10 @@
           /*                         .style("background", "pink"); */
           var details = [
             { keyword: "사람", number: "33" },
-            { keyword: "지구", number: "13" },
-            { keyword: "번영", number: "46" },
-            { keyword: "평화", number: "4" },
-            { keyword: "협력", number: "5" },
+            { keyword: "지구", number: "7" },
+            { keyword: "번영", number: "45" },
+            { keyword: "평화", number: "10" },
+            { keyword: "협력", number: "4" },
           ];
           var data = d3
             .pie()
@@ -279,7 +282,7 @@
             .append("rect")
             .attr("rx", 1)
             .attr("height", 26)
-            .attr("width", (13 * 260) / 100)
+            .attr("width", (7 * 260) / 100)
             .attr("y", 20)
             .attr("fill", "#FFFFBC");
 
@@ -316,7 +319,7 @@
             .append("rect")
             .attr("rx", 1)
             .attr("height", 26)
-            .attr("width", (46 * 260) / 100)
+            .attr("width", (45 * 260) / 100)
             .attr("y", 20)
             .attr("fill", "#BDBAD7");
 
@@ -353,7 +356,7 @@
             .append("rect")
             .attr("rx", 1)
             .attr("height", 26)
-            .attr("width", (4 * 260) / 100)
+            .attr("width", (10 * 260) / 100)
             .attr("y", 20)
             .attr("fill", "#EB8777");
 
@@ -390,7 +393,7 @@
             .append("rect")
             .attr("rx", 1)
             .attr("height", 26)
-            .attr("width", (5 * 260) / 100)
+            .attr("width", (4 * 260) / 100)
             .attr("y", 20)
             .attr("fill", "#8AB0D0");
 
@@ -412,7 +415,7 @@
     <footer id="keyText">
       <div id="reload">
         <div id="last1">
-          <p class="keyGraphName">경북대 핵심 키워드</p>
+          <p class="keyGraphName">충남대 핵심 키워드</p>
           <svg id="myGraph1"></svg>
           <script src="https://d3js.org/d3.v4.min.js"></script>
           <script>
@@ -431,7 +434,7 @@
                 kuni = "kpartnership";
               }
   
-              d3.csv("CSV/KPNU/" + kuni + ".csv", function (error, data) {
+              d3.csv("CSV/CNNU/" + kuni + ".csv", function (error, data) {
                 var dataSet = []; //데이터를 저장
                 var labelName = []; //레이블 저장
                 for (var i in data[0]) {
