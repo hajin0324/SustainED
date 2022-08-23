@@ -1,11 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Sunflower&display=swap");
-:root {
-  --main-font: 'Sunflower', sans-serif;
-}
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+
 *{
     margin: 0;
     padding: 0;
-    font-family: "Sunflower", sans-serif;
+    font-family: "Do Hyeon", sans-serif;
 }
 a {
     color: #ffaa17;
@@ -99,7 +97,7 @@ nav {
 }
 #intro-sub {
     margin-left: 204px;
-    margin-bottom: 10px;
+    margin-bottom: 60px;
 }
 .Uni_selector{
     margin-left: 240px;
@@ -280,7 +278,41 @@ nav {
 }
 
   /* 17goals.html */
-.first-six {
+  .seventeenImg {
+    width: 1920px;
+  }
+  .seventeenImg img {
+    width: 100px;
+    margin-left: 8px;
+  }
+  .btnImg {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+  }
+  #goalText {
+    position: absolute;
+    top: 580px;
+    left: 1000px;
+    width: 600px;
+  }
+  #exImg {
+    position: absolute;
+    top: 580px;
+    left: 260px;
+    width: 600px;
+    height: 400px;
+    padding-right: 100px;
+  }
+  #exHead {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  #exSub {
+    font-size: 24px;
+    line-height: 40px;
+  }
+/* .first-six {
     margin-top: 80px;
 }
 .six {
@@ -306,4 +338,4 @@ nav {
     padding: 4px 14px;
     font-size: 15px;
     font-weight: 600;
-}
+} */
