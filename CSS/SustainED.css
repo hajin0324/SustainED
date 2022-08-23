@@ -6,7 +6,7 @@
     font-family: "Do Hyeon", sans-serif;
 }
 a {
-    color: #ffaa17;
+    color: #2238b4;
     text-decoration: none;
     background-color: transparent;
     font-family: "Oswald", sans-serif;
@@ -42,6 +42,7 @@ nav {
 
 .menu-wrap {
     font-family: 'Oswald', sans-serif;
+    font-size: 20px;
     font-weight: 400;
     text-transform: uppercase;
     margin-top: 28px;
@@ -72,7 +73,7 @@ nav {
     margin-bottom: 120px;
 }
 .bg-basis {
-    background-color: #FFAA17;
+    background-color: #65b9f1;
 }
 .content-position {
     display: flex;
@@ -98,10 +99,12 @@ nav {
 #intro-sub {
     margin-left: 204px;
     margin-bottom: 60px;
+    font-size: 20px;
 }
 .Uni_selector{
     margin-left: 240px;
     width: 400px;
+    font-size: 20px;
 
     /* position: relative;
     left: 520px;
@@ -225,13 +228,13 @@ nav {
     margin-top: 100px;
 }
 .university {
-    height: 140px;
-    padding-left: 770px;
-    padding-top: 68px;
-    margin-bottom: 30px;
-    font-size: 60px;
-    font-weight: 400px;
-    background-color: #FFAA17;
+    height: 100px;
+    padding-left: 800px;
+    padding-top: 40px;
+    margin-bottom: 25px;
+    font-size: 55px;
+    font-weight: 300px;
+    background-color: #65B9F1;
     white-space: nowrap;
 }
 /* 5p.html */
@@ -242,7 +245,7 @@ nav {
 #p2 {
     width: 1000px;
     position: absolute;
-    top: 500px;
+    top: 430px;
     left: 780px;
 }
 
@@ -259,7 +262,7 @@ nav {
     margin-left: 140px;
     margin-top: 10px;
     width: 600px;
-    height: 600ox;
+    height: 600px;
 }
 .headline {
     margin-top: 100px;
@@ -284,6 +287,9 @@ nav {
   .seventeenImg img {
     width: 100px;
     margin-left: 8px;
+  }
+  .seventeenImg img:hover {
+    opacity: 0.4;
   }
   .btnImg {
     border: none;
