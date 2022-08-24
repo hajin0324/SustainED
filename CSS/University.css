@@ -243,32 +243,37 @@
     text-align: center;
     font-family: "Gowun Dodum", sans-serif;
   }
-  #reload {
+  .threeGraph {
     display: flex;
   }
-  #last1, #last2, #last3 {
+  #reload {
+    
+  }
+  #last1, #last2, #last3, #last4, #last5, #last6{
     margin-top: 20px;
     margin-bottom: 100px;
   }
-  #last4 {
+  #last7 {
+    position: absolute;
+    top: 1050px;
+    left: 1260px;
     margin-top: 40px;
     border: 1px solid black;
     width: 600px;
     height: 300px;
     font-size: 20px;
-    text-align: center;
     padding-top: 20px;
   }
-  #last1 svg, #last2 svg, #last3 svg {
+  #last1 svg, #last2 svg, #last3 svg, #last4 svg, #last5 svg, #last6 svg {
     width: 360px;
     height: 260px;
     margin-left: 20px;
   }
-  #myGraph1, #myGraph2, #myGraph3 {
+  #myGraph1, #myGraph2, #myGraph3, #myGraph4, #myGraph5, #myGraph6 {
     padding-top: 20px;
     padding-left: 20px;
   }
-  #myGraph1 text, #myGraph2 text, #myGraph3 text{
+  #myGraph1 text, #myGraph2 text, #myGraph3 text, #myGraph4 text, #myGraph5 text, #myGraph6 text{
     font-family: "Sunflower", sans-serif;
     font-size: 14px;
   }
@@ -293,4 +298,15 @@
     font-family: "Do Hyeon", sans-serif;
     font-size: 9pt;
     text-anchor: left;
+  }
+
+  /* 요약 텍스트 */
+  #sen1{
+
+  }
+  #sen2{
+
+  }
+  #sen3{
+
   }

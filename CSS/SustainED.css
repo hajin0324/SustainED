@@ -238,7 +238,7 @@ nav {
 }
 /* 5p.html */
 #p1 {
-    margin-top: 50px;
+    margin-top: 80px;
     margin-left: 160px;
   }
 #p2 {
@@ -305,9 +305,12 @@ nav {
     position: absolute;
     top: 580px;
     left: 260px;
+    padding-right: 100px;
+    border: 1px solid white;
+  }
+  #exImg img {
     width: 600px;
     height: 400px;
-    padding-right: 100px;
   }
   #exHead {
     font-size: 40px;
