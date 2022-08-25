@@ -152,8 +152,21 @@
     font-size: 18px;
     font-weight: bold;
   }
+  .impactExplain {
+    font-family: "Gowun Dodum", sans-serif;
+    font-size: 20px;
+    position: absolute;
+    top: 728px;
+    left: 248px;
+  }
 
   /* 파이차트 */
+  .fivepExplain {
+    font-family: "Gowun Dodum", sans-serif;
+    font-size: 28px;
+    color: #2238b4;
+    margin-left: 40px;
+  }
   #piechart {
     position: absolute;
     top: 284px;
@@ -177,8 +190,8 @@
     width: 800px;
     height: 80px;
     position: absolute;
-    top: 780px;
-    left: 60px;
+    top: 820px;
+    left: 1260px;
   }
   #key-legend text {
     font-size: 20px;
@@ -190,7 +203,7 @@
     width: 1920px;
     height: 140px;
     display: flex;
-    padding-top: 120px;
+    padding-top: 160px;
     margin-bottom: 80px;
   }
   .keyword {
@@ -226,6 +239,15 @@
   }
 
   /* 키워드 그래프 */
+  .keyExplain {
+    font-family: "Gowun Dodum", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #2238b4;
+    position: absolute;
+    top: 850px;
+    left: 70px
+  }
   #keyText {
     font-family: "Do Hyeon", sans-serif;
     font-size: 28px;
@@ -246,28 +268,46 @@
   .threeGraph {
     display: flex;
   }
+  #keyword1 {
+    position: absolute;
+    top: 1080px;
+    left: 60px;
+    color: #2238b4;
+  }
+  #keyword2 {
+    position: absolute;
+    top: 1470px;
+    left: 60px;
+    color: #2238b4;
+  }
   #reload {
     
   }
   #last1, #last2, #last3, #last4, #last5, #last6{
-    margin-top: 20px;
-    margin-bottom: 100px;
+    margin-top: 40px;
+  }
+  .exampleExplain {
+    font-family: "Gowun Dodum", sans-serif;
+    color: #2238b4;
+    position: absolute;
+    top: 1140px;
+    left: 1380px;
   }
   #last7 {
+    width: 700px;
     position: absolute;
-    top: 1050px;
-    left: 1260px;
+    top: 1200px;
+    left: 1160px;
     margin-top: 40px;
-    border: 1px solid black;
-    width: 600px;
-    height: 300px;
+    border: 2px solid black;
+    flex-wrap: wrap;
     font-size: 20px;
-    padding-top: 20px;
+    padding: 20px 20px 20px 20px;
   }
   #last1 svg, #last2 svg, #last3 svg, #last4 svg, #last5 svg, #last6 svg {
     width: 360px;
     height: 260px;
-    margin-left: 20px;
+    margin-left: 0px;
   }
   #myGraph1, #myGraph2, #myGraph3, #myGraph4, #myGraph5, #myGraph6 {
     padding-top: 20px;
@@ -298,15 +338,4 @@
     font-family: "Do Hyeon", sans-serif;
     font-size: 9pt;
     text-anchor: left;
-  }
-
-  /* 요약 텍스트 */
-  #sen1{
-
-  }
-  #sen2{
-
-  }
-  #sen3{
-
   }

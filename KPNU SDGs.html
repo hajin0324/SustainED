@@ -120,7 +120,9 @@
           </div>
         </div>
       </section>
+      <p class="impactExplain">* Impact Ranking Score : 대학 평가기관인 타임스 고등교육에서 측정한 점수</p>
       <div id="piechart">
+        <p class="fivepExplain">5Ps 라벨 분포</p>
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script>
           var width = 750,
@@ -134,11 +136,11 @@
             .attr("height", height);
           /*                         .style("background", "pink"); */
           var details = [
-            { keyword: "사람", number: "33" },
-            { keyword: "지구", number: "13" },
-            { keyword: "번영", number: "46" },
-            { keyword: "평화", number: "4" },
-            { keyword: "협력", number: "5" },
+            { keyword: "인간권리", number: "33" },
+            { keyword: "지구환경", number: "13" },
+            { keyword: "사회발전", number: "46" },
+            { keyword: "정의와평화", number: "4" },
+            { keyword: "파트너쉽", number: "5" },
           ];
           var data = d3
             .pie()
@@ -213,6 +215,7 @@
       </div>
     </main>
     <div>
+      <p class="keyExplain">2021년 Impact Ranking Score 평가 결과</p>
       <svg id="key-legend">
         <g>
           <rect x="20" y="65" width="48" height="8" fill="#9ACA7C"></rect>
@@ -226,7 +229,7 @@
     </div>
     <article id="keyword-compare">
       <button class="keygraph" value="people">
-        <p class="keyword">사람</p>
+        <p class="keyword">인간권리</p>
         <svg id="svg1"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
@@ -263,7 +266,7 @@
         </script>
       </button>
       <button class="keygraph" value="planet">
-        <p class="keyword">지구</p>
+        <p class="keyword">지구환경</p>
         <svg id="svg2"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
@@ -284,7 +287,7 @@
             .attr("height", 26)
             .attr("width", (71.6 * 260) / 100)
             .attr("y", 20)
-            .attr("fill", "#FFFFBC");
+            .attr("fill", "#dcdc3c");
 
           d3.select("#svg2")
             .append("g")
@@ -300,7 +303,7 @@
         </script>
       </button>
       <button class="keygraph" value="prosperity">
-        <p class="keyword">번영</p>
+        <p class="keyword">사회발전</p>
         <svg id="svg3"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
@@ -337,7 +340,7 @@
         </script>
       </button>
       <button class="keygraph" value="peace">
-        <p class="keyword">평화</p>
+        <p class="keyword">정의와평화</p>
         <svg id="svg4"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
@@ -374,7 +377,7 @@
         </script>
       </button>
       <button class="keygraph" value="partnership">
-        <p class="keyword">협력</p>
+        <p class="keyword">파트너쉽</p>
         <svg id="svg5"></svg>
         <script src="http://d3js.org/d3.v3.js"></script>
         <script>
@@ -414,90 +417,35 @@
 
     <footer id="keyText">
       <div id="reload">
+        <p id="keyword1">*빈도수 기반</p>
         <div class="threeGraph">
           <div id="last1">
             <p class="keyGraphName">경북대 핵심 키워드</p>
             <svg id="myGraph1"></svg>
             <script src="https://d3js.org/d3.v4.min.js"></script>
             <script>
-              $(".keygraph").click(function(){
+              $(".keygraph").click(function () {
                 $("#reload").load(window.location.href + " #reload");
+
                 var value = $(this).attr("value");
+
                 if (value == "people") {
-                  kuni = "kpeople";
+                  uni = "KPNU/k1a";
+                  req_data("text/KPNU/KPNU1.csv");
                 } else if (value == "planet") {
-                  kuni = "kplanet";
+                  uni = "KPNU/k2a";
+                  req_data("text/KPNU/KPNU2.csv");
                 } else if (value == "prosperity") {
-                  kuni = "kprosperity";
+                  uni = "KPNU/k3a";
+                  req_data("text/KPNU/KPNU3.csv");
                 } else if (value == "peace") {
-                  kuni = "kpeace";
+                  uni = "KPNU/k4a";
+                  req_data("text/KPNU/KPNU4.csv");
                 } else if (value == "partnership") {
-                  kuni = "kpartnership";
+                  uni = "KPNU/k5a";
+                  req_data("text/KPNU/KPNU5.csv");
                 }
-    
-                d3.csv("CSV/KPNU/" + kuni + ".csv", function (error, data) {
-                  var dataSet = []; //데이터를 저장
-                  var labelName = []; //레이블 저장
-                  for (var i in data[0]) {
-                    dataSet.push(data[0][i]); //가로 줄 넣음
-                    labelName.push(i); //레이블 넣음
-                  }
-    
-                  //SVG요소의 넓이와 높이를 구함
-                  var svgEle = document.getElementById("myGraph1");
-                  var svgWidth = 480;
-                  var svgHeight = 260;
-    
-                  //그래프에 사용할 변수
-                  var barElements; //막대그래프의 막대 요소를 저장할 변수
-                  var dataMax = 400; //데이터의 최댓값
-                  var barHeight = 20; //막대 넓이
-                  var barMargin = 15; //막대 간격
-    
-                  //그래프 그리기(그래프 옵션)
-                  barElements = d3.select("#myGraph1")
-                                  .selectAll("rect") //rect 요소를 지정
-                                  .data(dataSet); //데이터를 요소에 연결
-    
-                  //데이터가 추가될 때
-                  barElements.enter() //데이터 개수 만큼 반복
-                             .append("rect") //데이터 개수만큼 rect 요소가 추가됨
-                             .attr("class", "bar") //CSS 클래스를 지정
-                             .attr("width", 0) //초깃값 0으로 설정
-                             .attr("height", barHeight) //넓이 지정
-                             .attr("x", 88)
-                             .attr("y", function (d, i) { //Y좌표 지정
-                               return i * (barHeight + barMargin) + barMargin; //처음 Y축과 간격
-                             })
-    
-                             //애니메이션
-                             .transition()
-                             .duration(800) //애니메이션 처리 시간
-                             .delay(function (d, i) { return i * 200; }) //0.4초 대기
-                             .attr("x", function (d, i) { return 88; }) //X 좌표를 지정
-                             .attr("width", function (d, i) {
-                               //넓이설정.2번째의 파라미터에 함수지정
-                               return d; //데이터 값을 그대로 넓이로 지정
-                             });
-    
-                  //막대의 레이블을 표시
-                  barElements.enter()
-                             .append("text")
-                             .attr("class", "barName")
-                             .attr("y", function (d, i) { //Y좌표 지정
-                               return (i * (barHeight + barMargin) + (barHeight / 2 + barMargin) + 8); }) //막대그래프의 표시 간격을 맞춤
-                             .attr("x", 0)
-                             .text(function (d, i) { return labelName[i]; }) //레이블 이름을 반환
-                             .style("font-family", "Do Hyeon")
-                             .style("font-size", 20);
-                  //Y 방향의 선을 표시
-                  d3.select("#myGraph1")
-                    .append("rect")
-                    .attr("class", "axis_y")
-                    .attr("height", function(d, i) { return ((barHeight + barMargin) * dataSet.length) + 30; })
-                    .attr("width", "1")
-                    .attr("x", 88);
-                  });
+                createGraph(uni, "#myGraph1");
               });
             </script>
           </div>
@@ -506,85 +454,20 @@
             <svg id="myGraph2"></svg>
             <script src="https://d3js.org/d3.v4.min.js"></script>
             <script>
-              $(".keygraph").click(function(){
+              $(".keygraph").click(function () {
                 var value = $(this).attr("value");
                 if (value == "people") {
-                  kouni = "kopeople";
+                  uni = "KOREA/k1a";
                 } else if (value == "planet") {
-                  kouni = "koplanet";
+                  uni = "KOREA/k2a";
                 } else if (value == "prosperity") {
-                  kouni = "koprosperity";
+                  uni = "KOREA/k3a";
                 } else if (value == "peace") {
-                  kouni = "kopeace";
+                  uni = "KOREA/k4a";
                 } else if (value == "partnership") {
-                  kouni = "kopartnership";
+                  uni = "KOREA/k5a";
                 }
-    
-                d3.csv("CSV/kotextrank/" + kouni + ".csv", function (error, data) {
-                  var dataSet = []; //데이터를 저장
-                  var labelName = []; //레이블 저장
-                  for (var i in data[0]) {
-                    dataSet.push(data[0][i]); //가로 줄 넣음
-                    labelName.push(i); //레이블 넣음
-                  }
-                
-                  //SVG요소의 넓이와 높이를 구함
-                  var svgEle = document.getElementById("myGraph2");
-                  var svgWidth = 480;
-                  var svgHeight = 260;
-    
-                  //그래프에 사용할 변수
-                  var barElements; //막대그래프의 막대 요소를 저장할 변수
-                  var dataMax = 400; //데이터의 최댓값
-                  var barHeight = 20; //막대 넓이
-                  var barMargin = 15; //막대 간격
-    
-                  //그래프 그리기(그래프 옵션)
-                  barElements = d3.select("#myGraph2")
-                                  .selectAll("rect") //rect 요소를 지정
-                                  .data(dataSet); //데이터를 요소에 연결
-    
-                  //데이터가 추가될 때
-                  barElements.enter() //데이터 개수 만큼 반복
-                             .append("rect") //데이터 개수만큼 rect 요소가 추가됨
-                             .attr("class", "bar") //CSS 클래스를 지정
-                             .attr("width", 0) //초깃값 0으로 설정
-                             .attr("height", barHeight) //넓이 지정
-                             .attr("x", 88)
-                             .attr("y", function (d, i) { //Y좌표 지정
-                               return i * (barHeight + barMargin) + barMargin; //처음 Y축과 간격
-                             })
-    
-                             //애니메이션
-                             .transition()
-                             .duration(800) //애니메이션 처리 시간
-                             .delay(function (d, i) { return i * 200; }) //0.4초 대기
-                             .attr("x", function (d, i) { return 88; }) //X 좌표를 지정
-                             .attr("width", function (d, i) {
-                               //넓이설정.2번째의 파라미터에 함수지정
-                               return d; //데이터 값을 그대로 넓이로 지정
-                             });
-    
-                  //막대의 레이블을 표시
-                  barElements.enter()
-                             .append("text")
-                             .attr("class", "barName")
-                             .attr("y", function (d, i) { //Y좌표 지정
-                               return (i * (barHeight + barMargin) + (barHeight / 2 + barMargin) + 8); }) //막대그래프의 표시 간격을 맞춤
-                             .attr("x", 0)
-                             .text(function (d, i) { return labelName[i]; }) //레이블 이름을 반환
-                             .style("font-family", "Do Hyeon")
-                             .style("font-size", 20);
-    
-                  //Y 방향의 선을 표시
-                  d3.select("#myGraph2")
-                    .append("rect")
-                    .attr("class", "axis_y")
-                    .attr("height", function(d, i) { return ((barHeight + barMargin) * dataSet.length) + 30; })
-                    .attr("width", "1")
-                    .attr("x", 88);
-                });
-    
+                createGraph(uni, "#myGraph2");
               });
             </script>
           </div>
@@ -593,259 +476,66 @@
             <svg id="myGraph3"></svg>
             <script src="https://d3js.org/d3.v4.min.js"></script>
             <script>
-              $(".keygraph").click(function(){
+              $(".keygraph").click(function () {
                 var value = $(this).attr("value");
                 if (value == "people") {
-                  ouni = "opeople";
+                  uni = "OVERSEA/k1a";
                 } else if (value == "planet") {
-                  ouni = "oplanet";
+                  uni = "OVERSEA/k2a";
                 } else if (value == "prosperity") {
-                  ouni = "oprosperity";
+                  uni = "OVERSEA/k3a";
                 } else if (value == "peace") {
-                  ouni = "opeace";
+                  uni = "OVERSEA/k4a";
                 } else if (value == "partnership") {
-                  ouni = "opartnership";
+                  uni = "OVERSEA/k5a";
                 }
-    
-                d3.csv("CSV/otextrank/" + ouni + ".csv", function (error, data) {
-                  var dataSet = []; //데이터를 저장
-                  var labelName = []; //레이블 저장
-                  for (var i in data[0]) {
-                    dataSet.push(data[0][i]); //가로 줄 넣음
-                    labelName.push(i); //레이블 넣음
-                  }
-                
-                  //SVG요소의 넓이와 높이를 구함
-                  var svgEle = document.getElementById("myGraph3");
-                  var svgWidth = 480;
-                  var svgHeight = 260;
-    
-                  //그래프에 사용할 변수
-                  var barElements; //막대그래프의 막대 요소를 저장할 변수
-                  var dataMax = 400; //데이터의 최댓값
-                  var barHeight = 20; //막대 넓이
-                  var barMargin = 15; //막대 간격
-    
-                  //그래프 그리기(그래프 옵션)
-                  barElements = d3.select("#myGraph3")
-                                  .selectAll("rect") //rect 요소를 지정
-                                  .data(dataSet); //데이터를 요소에 연결
-    
-                  //데이터가 추가될 때
-                  barElements.enter() //데이터 개수 만큼 반복
-                             .append("rect") //데이터 개수만큼 rect 요소가 추가됨
-                             .attr("class", "bar") //CSS 클래스를 지정
-                             .attr("width", 0) //초깃값 0으로 설정
-                             .attr("height", barHeight) //넓이 지정
-                             .attr("x", 88)
-                             .attr("y", function (d, i) { //Y좌표 지정
-                               return i * (barHeight + barMargin) + barMargin; //처음 Y축과 간격
-                             })
-    
-                             //애니메이션
-                             .transition()
-                             .duration(800) //애니메이션 처리 시간
-                             .delay(function (d, i) { return i * 200; }) //0.4초 대기
-                             .attr("x", function (d, i) { return 88; }) //X 좌표를 지정
-                             .attr("width", function (d, i) {
-                               //넓이설정.2번째의 파라미터에 함수지정
-                               return d * 4; //데이터 값을 그대로 넓이로 지정
-                             });
-    
-                  //막대의 레이블을 표시
-                  barElements.enter()
-                             .append("text")
-                             .attr("class", "barName")
-                             .attr("y", function (d, i) { //Y좌표 지정
-                               return (i * (barHeight + barMargin) + (barHeight / 2 + barMargin) + 8); }) //막대그래프의 표시 간격을 맞춤
-                             .attr("x", 0)
-                             .text(function (d, i) { return labelName[i]; }) //레이블 이름을 반환
-                             .style("font-family", "Do Hyeon")
-                             .style("font-size", 20);
-    
-                  //Y 방향의 선을 표시
-                  d3.select("#myGraph3")
-                    .append("rect")
-                    .attr("class", "axis_y")
-                    .attr("height", function(d, i) { return ((barHeight + barMargin) * dataSet.length) + 30; })
-                    .attr("width", "1")
-                    .attr("x", 88);
-                });
-    
+                createGraph(uni, "#myGraph3");
               });
             </script>
           </div>
         </div>
         <div class="threeGraph">
           <div id="last4">
-            <p class="keyGraphName">해외 대학 핵심 키워드</p>
+            <p class="keyGraphName">경북대 핵심 키워드</p>
             <svg id="myGraph4"></svg>
             <script src="https://d3js.org/d3.v4.min.js"></script>
             <script>
-              $(".keygraph").click(function(){
+              $(".keygraph").click(function () {
                 var value = $(this).attr("value");
                 if (value == "people") {
-                  ouni = "opeople";
+                  uni = "KPNU/k1b";
                 } else if (value == "planet") {
-                  ouni = "oplanet";
+                  uni = "KPNU/k2b";
                 } else if (value == "prosperity") {
-                  ouni = "oprosperity";
+                  uni = "KPNU/k3b";
                 } else if (value == "peace") {
-                  ouni = "opeace";
+                  uni = "KPNU/k4b";
                 } else if (value == "partnership") {
-                  ouni = "opartnership";
+                  uni = "KPNU/k5b";
                 }
-    
-                d3.csv("CSV/otextrank/" + ouni + ".csv", function (error, data) {
-                  var dataSet = []; //데이터를 저장
-                  var labelName = []; //레이블 저장
-                  for (var i in data[0]) {
-                    dataSet.push(data[0][i]); //가로 줄 넣음
-                    labelName.push(i); //레이블 넣음
-                  }
-                
-                  //SVG요소의 넓이와 높이를 구함
-                  var svgEle = document.getElementById("myGraph4");
-                  var svgWidth = 480;
-                  var svgHeight = 260;
-    
-                  //그래프에 사용할 변수
-                  var barElements; //막대그래프의 막대 요소를 저장할 변수
-                  var dataMax = 400; //데이터의 최댓값
-                  var barHeight = 20; //막대 넓이
-                  var barMargin = 15; //막대 간격
-    
-                  //그래프 그리기(그래프 옵션)
-                  barElements = d3.select("#myGraph4")
-                                  .selectAll("rect") //rect 요소를 지정
-                                  .data(dataSet); //데이터를 요소에 연결
-    
-                  //데이터가 추가될 때
-                  barElements.enter() //데이터 개수 만큼 반복
-                             .append("rect") //데이터 개수만큼 rect 요소가 추가됨
-                             .attr("class", "bar") //CSS 클래스를 지정
-                             .attr("width", 0) //초깃값 0으로 설정
-                             .attr("height", barHeight) //넓이 지정
-                             .attr("x", 88)
-                             .attr("y", function (d, i) { //Y좌표 지정
-                               return i * (barHeight + barMargin) + barMargin; //처음 Y축과 간격
-                             })
-    
-                             //애니메이션
-                             .transition()
-                             .duration(800) //애니메이션 처리 시간
-                             .delay(function (d, i) { return i * 200; }) //0.4초 대기
-                             .attr("x", function (d, i) { return 88; }) //X 좌표를 지정
-                             .attr("width", function (d, i) {
-                               //넓이설정.2번째의 파라미터에 함수지정
-                               return d * 4; //데이터 값을 그대로 넓이로 지정
-                             });
-    
-                  //막대의 레이블을 표시
-                  barElements.enter()
-                             .append("text")
-                             .attr("class", "barName")
-                             .attr("y", function (d, i) { //Y좌표 지정
-                               return (i * (barHeight + barMargin) + (barHeight / 2 + barMargin) + 8); }) //막대그래프의 표시 간격을 맞춤
-                             .attr("x", 0)
-                             .text(function (d, i) { return labelName[i]; }) //레이블 이름을 반환
-                             .style("font-family", "Do Hyeon")
-                             .style("font-size", 20);
-    
-                  //Y 방향의 선을 표시
-                  d3.select("#myGraph4")
-                    .append("rect")
-                    .attr("class", "axis_y")
-                    .attr("height", function(d, i) { return ((barHeight + barMargin) * dataSet.length) + 30; })
-                    .attr("width", "1")
-                    .attr("x", 88);
-                });
+                createGraph(uni, "#myGraph4");
               });
             </script>
           </div>
           <div id="last5">
-            <p class="keyGraphName">해외 대학 핵심 키워드</p>
+            <p class="keyGraphName">국내 대학 핵심 키워드</p>
             <svg id="myGraph5"></svg>
             <script src="https://d3js.org/d3.v4.min.js"></script>
             <script>
-              $(".keygraph").click(function(){
+              $(".keygraph").click(function () {
                 var value = $(this).attr("value");
                 if (value == "people") {
-                  ouni = "opeople";
+                  uni = "KOREA/k1b";
                 } else if (value == "planet") {
-                  ouni = "oplanet";
+                  uni = "KOREA/k2b";
                 } else if (value == "prosperity") {
-                  ouni = "oprosperity";
+                  uni = "KOREA/k3b";
                 } else if (value == "peace") {
-                  ouni = "opeace";
+                  uni = "KOREA/k4b";
                 } else if (value == "partnership") {
-                  ouni = "opartnership";
+                  uni = "KOREA/k5b";
                 }
-    
-                d3.csv("CSV/otextrank/" + ouni + ".csv", function (error, data) {
-                  var dataSet = []; //데이터를 저장
-                  var labelName = []; //레이블 저장
-                  for (var i in data[0]) {
-                    dataSet.push(data[0][i]); //가로 줄 넣음
-                    labelName.push(i); //레이블 넣음
-                  }
-                
-                  //SVG요소의 넓이와 높이를 구함
-                  var svgEle = document.getElementById("myGraph5");
-                  var svgWidth = 480;
-                  var svgHeight = 260;
-    
-                  //그래프에 사용할 변수
-                  var barElements; //막대그래프의 막대 요소를 저장할 변수
-                  var dataMax = 400; //데이터의 최댓값
-                  var barHeight = 20; //막대 넓이
-                  var barMargin = 15; //막대 간격
-    
-                  //그래프 그리기(그래프 옵션)
-                  barElements = d3.select("#myGraph5")
-                                  .selectAll("rect") //rect 요소를 지정
-                                  .data(dataSet); //데이터를 요소에 연결
-    
-                  //데이터가 추가될 때
-                  barElements.enter() //데이터 개수 만큼 반복
-                             .append("rect") //데이터 개수만큼 rect 요소가 추가됨
-                             .attr("class", "bar") //CSS 클래스를 지정
-                             .attr("width", 0) //초깃값 0으로 설정
-                             .attr("height", barHeight) //넓이 지정
-                             .attr("x", 88)
-                             .attr("y", function (d, i) { //Y좌표 지정
-                               return i * (barHeight + barMargin) + barMargin; //처음 Y축과 간격
-                             })
-    
-                             //애니메이션
-                             .transition()
-                             .duration(800) //애니메이션 처리 시간
-                             .delay(function (d, i) { return i * 200; }) //0.4초 대기
-                             .attr("x", function (d, i) { return 88; }) //X 좌표를 지정
-                             .attr("width", function (d, i) {
-                               //넓이설정.2번째의 파라미터에 함수지정
-                               return d * 4; //데이터 값을 그대로 넓이로 지정
-                             });
-    
-                  //막대의 레이블을 표시
-                  barElements.enter()
-                             .append("text")
-                             .attr("class", "barName")
-                             .attr("y", function (d, i) { //Y좌표 지정
-                               return (i * (barHeight + barMargin) + (barHeight / 2 + barMargin) + 8); }) //막대그래프의 표시 간격을 맞춤
-                             .attr("x", 0)
-                             .text(function (d, i) { return labelName[i]; }) //레이블 이름을 반환
-                             .style("font-family", "Do Hyeon")
-                             .style("font-size", 20);
-    
-                  //Y 방향의 선을 표시
-                  d3.select("#myGraph5")
-                    .append("rect")
-                    .attr("class", "axis_y")
-                    .attr("height", function(d, i) { return ((barHeight + barMargin) * dataSet.length) + 30; })
-                    .attr("width", "1")
-                    .attr("x", 88);
-                });
+                createGraph(uni, "#myGraph5");
               });
             </script>
           </div>
@@ -854,119 +544,137 @@
             <svg id="myGraph6"></svg>
             <script src="https://d3js.org/d3.v4.min.js"></script>
             <script>
-              $(".keygraph").click(function(){
+              $(".keygraph").click(function () {
                 var value = $(this).attr("value");
                 if (value == "people") {
-                  ouni = "opeople";
+                  uni = "OVERSEA/k1a";
                 } else if (value == "planet") {
-                  ouni = "oplanet";
+                  uni = "OVERSEA/k2a";
                 } else if (value == "prosperity") {
-                  ouni = "oprosperity";
+                  uni = "OVERSEA/k3a";
                 } else if (value == "peace") {
-                  ouni = "opeace";
+                  uni = "OVERSEA/k4a";
                 } else if (value == "partnership") {
-                  ouni = "opartnership";
+                  uni = "OVERSEA/k5a";
                 }
-    
-                d3.csv("CSV/otextrank/" + ouni + ".csv", function (error, data) {
-                  var dataSet = []; //데이터를 저장
-                  var labelName = []; //레이블 저장
-                  for (var i in data[0]) {
-                    dataSet.push(data[0][i]); //가로 줄 넣음
-                    labelName.push(i); //레이블 넣음
-                  }
-                
-                  //SVG요소의 넓이와 높이를 구함
-                  var svgEle = document.getElementById("myGraph6");
-                  var svgWidth = 480;
-                  var svgHeight = 260;
-    
-                  //그래프에 사용할 변수
-                  var barElements; //막대그래프의 막대 요소를 저장할 변수
-                  var dataMax = 400; //데이터의 최댓값
-                  var barHeight = 20; //막대 넓이
-                  var barMargin = 15; //막대 간격
-    
-                  //그래프 그리기(그래프 옵션)
-                  barElements = d3.select("#myGraph6")
-                                  .selectAll("rect") //rect 요소를 지정
-                                  .data(dataSet); //데이터를 요소에 연결
-    
-                  //데이터가 추가될 때
-                  barElements.enter() //데이터 개수 만큼 반복
-                             .append("rect") //데이터 개수만큼 rect 요소가 추가됨
-                             .attr("class", "bar") //CSS 클래스를 지정
-                             .attr("width", 0) //초깃값 0으로 설정
-                             .attr("height", barHeight) //넓이 지정
-                             .attr("x", 88)
-                             .attr("y", function (d, i) { //Y좌표 지정
-                               return i * (barHeight + barMargin) + barMargin; //처음 Y축과 간격
-                             })
-    
-                             //애니메이션
-                             .transition()
-                             .duration(800) //애니메이션 처리 시간
-                             .delay(function (d, i) { return i * 200; }) //0.4초 대기
-                             .attr("x", function (d, i) { return 88; }) //X 좌표를 지정
-                             .attr("width", function (d, i) {
-                               //넓이설정.2번째의 파라미터에 함수지정
-                               return d * 4; //데이터 값을 그대로 넓이로 지정
-                             });
-    
-                  //막대의 레이블을 표시
-                  barElements.enter()
-                             .append("text")
-                             .attr("class", "barName")
-                             .attr("y", function (d, i) { //Y좌표 지정
-                               return (i * (barHeight + barMargin) + (barHeight / 2 + barMargin) + 8); }) //막대그래프의 표시 간격을 맞춤
-                             .attr("x", 0)
-                             .text(function (d, i) { return labelName[i]; }) //레이블 이름을 반환
-                             .style("font-family", "Do Hyeon")
-                             .style("font-size", 20);
-    
-                  //Y 방향의 선을 표시
-                  d3.select("#myGraph6")
-                    .append("rect")
-                    .attr("class", "axis_y")
-                    .attr("height", function(d, i) { return ((barHeight + barMargin) * dataSet.length) + 30; })
-                    .attr("width", "1")
-                    .attr("x", 88);
-                });    
+                createGraph(uni, "#myGraph6");              
               });
             </script>
           </div>
         </div>
       </div>
+      <p class="exampleExplain">해외 대학 관련 활동 사례</p>
       <div id="last7">
-        <p id="sen1"></p>
-        <p id="sen2"></p>
-        <p id="sen3"></p>
         <script>
-          $(".keygraph").click(function () {
-            var value = $(this).attr("value");
+          function req_data(para) {
+            fetch(para).then(function (response) {
+              response.text().then(function (text) {
+                var list = text.split("/");
+                var subject = "";
+                for (var i = 0; i < 3; i++) {
+                  var target = list[i];
+                  subject += "<li>" + target + "</li>";
+                }
+                document.querySelector("#last7").innerHTML = subject;
+              });
+            });
+          }
+        </script>
+        <script>
+          function createGraph(uni, para) {
+            d3.csv("CSV/" + uni + ".csv", function (error, data) {
+              var dataSet = []; //데이터를 저장
+              var labelName = []; //레이블 저장
+              for (var i in data[0]) {
+                dataSet.push(data[0][i]); //가로 줄 넣음
+                labelName.push(i); //레이블 넣음
+              }
 
-            if (value == "people") {
- 
-            } else if (value == "planet") {
+              //SVG요소의 넓이와 높이를 구함
+              var svgEle = document.getElementById(para.substr(1));
+              var svgWidth = 480;
+              var svgHeight = 260;
 
-            } else if (value == "prosperity") {
+              //그래프에 사용할 변수
+              var barElements; //막대그래프의 막대 요소를 저장할 변수
+              var dataMax = 400; //데이터의 최댓값
+              var barHeight = 20; //막대 넓이
+              var barMargin = 15; //막대 간격
+              var length = 10;
+              //그래프 그리기(그래프 옵션)
+              barElements = d3
+                .select(para)
+                .selectAll("rect") //rect 요소를 지정
+                .data(dataSet); //데이터를 요소에 연결
 
-            } else if (value == "peace") {
- 
-            } else if (value == "partnership") {
-  
-            }
-            document.querySelector("#sen1").textContent = '1';
-            document.querySelector("#sen2").textContent = '2';
-            document.querySelector("#sen3").textContent = '3';
-          });
+              //데이터가 추가될 때
+              barElements
+                .enter() //데이터 개수 만큼 반복
+                .append("rect") //데이터 개수만큼 rect 요소가 추가됨
+                .attr("class", "bar") //CSS 클래스를 지정
+                .attr("width", 0) //초깃값 0으로 설정
+                .attr("height", barHeight) //넓이 지정
+                .attr("x", 88)
+                .attr("y", function (d, i) {
+                  //Y좌표 지정
+                  return i * (barHeight + barMargin) + barMargin; //처음 Y축과 간격
+                })
+                .style("fill", function (d, i){
+                  if(i == 0) 
+                    return '#EE3A54';
+                })
+
+                //애니메이션
+                .transition()
+                .duration(800) //애니메이션 처리 시간
+                .delay(function (d, i) {
+                  return i * 200;
+                }) //0.4초 대기
+                .attr("x", function (d, i) {
+                  return 88;
+                }) //X 좌표를 지정
+                .attr("width", function (d, i) {
+                  //넓이설정.2번째의 파라미터에 함수지정
+                  length = length - 1;
+                  return 10 * length + (d * 1.2);
+                });
+
+              //막대의 레이블을 표시
+              barElements
+                .enter()
+                .append("text")
+                .attr("class", "barName")
+                .attr("y", function (d, i) {
+                  //Y좌표 지정
+                  return (
+                    i * (barHeight + barMargin) + (barHeight / 2 + barMargin) + 8
+                  );
+                }) //막대그래프의 표시 간격을 맞춤
+                .attr("x", 0)
+                .text(function (d, i) {
+                  return labelName[i];
+                }) //레이블 이름을 반환
+                .style("font-family", "Do Hyeon")
+                .style("font-size", 20);
+              //Y 방향의 선을 표시
+              d3.select(para)
+                .append("rect")
+                .attr("class", "axis_y")
+                .attr("height", function (d, i) {
+                  return (barHeight + barMargin) * dataSet.length + 30;
+                })
+                .attr("width", "1")
+                .attr("x", 88);
+            });
+          }
         </script>
       </div>
     </footer>
-    <script>;
-        $(".keygraph").click(function(){
-            document.getElementById("keyText").style.display = "flex";
-        });
+
+    <script>
+      $(".keygraph").click(function () {
+        document.getElementById("keyText").style.display = "flex";
+      });
     </script>
   </body>
 </html>
