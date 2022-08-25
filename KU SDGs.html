@@ -431,19 +431,24 @@
 
                 if (value == "people") {
                   uni = "KU/k1a";
-                  req_data("text/KU/KU1.csv");
+                  req_data_o("text/KU/KU1.csv");
+                  req_data_k("text/KU/KU6.csv");
                 } else if (value == "planet") {
                   uni = "KU/k2a";
-                  req_data("text/KU/KU2.csv");
+                  req_data_o("text/KU/KU2.csv");
+                  req_data_k("text/KU/KU7.csv");
                 } else if (value == "prosperity") {
                   uni = "KU/k3a";
-                  req_data("text/KU/KU3.csv");
+                  req_data_o("text/KU/KU3.csv");
+                  req_data_k("text/KU/KU8.csv");
                 } else if (value == "peace") {
                   uni = "KU/k4a";
-                  req_data("text/KU/KU4.csv");
+                  req_data_o("text/KU/KU4.csv");
+                  req_data_k("text/KU/KU9.csv");
                 } else if (value == "partnership") {
                   uni = "KU/k5a";
-                  req_data("text/KU/KU5.csv");
+                  req_data_o("text/KU/KU5.csv");
+                  req_data_k("text/KU/KU10.csv");
                 }
                 createGraph(uni, "#myGraph1");
               });
@@ -564,10 +569,10 @@
           </div>
         </div>
       </div>
-      <p class="exampleExplain">해외 대학 관련 활동 사례</p>
+      <p class="exampleExplain1">해외 대학 관련 활동 사례</p>
       <div id="last7">
         <script>
-          function req_data(para) {
+          function req_data_o(para) {
             fetch(para).then(function (response) {
               response.text().then(function (text) {
                 var list = text.split("/");
@@ -577,6 +582,24 @@
                   subject += "<li>" + target + "</li>";
                 }
                 document.querySelector("#last7").innerHTML = subject;
+              });
+            });
+          }
+        </script>
+      </div>
+      <p class="exampleExplain2">국내 대학 관련 활동 사례</p>
+      <div id="last8">
+        <script>
+          function req_data_k(para) {
+            fetch(para).then(function (response) {
+              response.text().then(function (text) {
+                var list = text.split("/");
+                var subject = "";
+                for (var i = 0; i < 3; i++) {
+                  var target = list[i];
+                  subject += "<li>" + target + "</li>";
+                }
+                document.querySelector("#last8").innerHTML = subject;
               });
             });
           }
@@ -593,7 +616,7 @@
 
               //SVG요소의 넓이와 높이를 구함
               var svgEle = document.getElementById(para.substr(1));
-              var svgWidth = 480;
+              var svgWidth = 300;
               var svgHeight = 260;
 
               var xScale = d3.scaleLinear()

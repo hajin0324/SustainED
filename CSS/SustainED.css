@@ -32,9 +32,12 @@ body {
 header {
     width: 1920px;
     display: block;
-    background-color: white;
+    background-color: #71adf0;
     margin: auto;
 }
+hr {
+    border: 2px solid #4a94e9;
+  }
 nav {
     display: block;
 }
@@ -73,7 +76,8 @@ nav {
     margin-bottom: 120px;
 }
 .bg-basis {
-    background-color: #65b9f1;
+    background-color: #65B9F1;
+
 }
 .content-position {
     display: flex;
@@ -128,7 +132,7 @@ nav {
 }
 #list{
     background-color: white;
-    width: 400px;
+    width: 398px;
     display: inline-block;
     max-height: 240px;
     opacity: 1;
@@ -138,11 +142,12 @@ nav {
 
 #list::-webkit-scrollbar {
     width: 8px;
-    background: white;
+    background: lightgray;
 }
 
 #list::-webkit-scrollbar-thumb{
-    background: lightgray;
+    background: rgb(149, 149, 149);
+
 }
 
 .options{
@@ -150,14 +155,10 @@ nav {
     padding: 15px 0 15px 70px;
     list-style: none;
     cursor: pointer;
-    border-bottom: 0.5px solid lightgray;
+    border-bottom: 0.5px solid black;
     box-sizing: border-box;
     position: relative;
 }
-.options p{
-    
-}
-
 .options img{
     width: 25px;
     position: absolute;
@@ -228,9 +229,11 @@ nav {
     margin-top: 100px;
 }
 .university {
+    width: 1110px;
     height: 100px;
     padding-left: 800px;
     padding-top: 40px;
+    margin: auto;
     margin-bottom: 25px;
     font-size: 55px;
     font-weight: 300px;
@@ -283,10 +286,11 @@ nav {
   /* 17goals.html */
   .seventeenImg {
     width: 1920px;
-    margin-top: 40px;
+    margin: auto;
   }
   .seventeenImg img {
     width: 100px;
+    margin-top: 20px;
     margin-left: 8px;
   }
   .seventeenImg img:hover {
@@ -321,6 +325,10 @@ nav {
   #exSub {
     font-size: 24px;
     line-height: 40px;
+  }
+
+  .marginAuto {
+    margin: auto;
   }
 /* .first-six {
     margin-top: 80px;

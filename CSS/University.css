@@ -174,7 +174,7 @@
     text-align: center;
   }
   .pie-inside {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     fill: black;
   }
@@ -184,6 +184,7 @@
     line-height: 2px;
 
   }
+
 
   /* 키워드 차트 */
   #key-legend {
@@ -276,7 +277,7 @@
   }
   #keyword2 {
     position: absolute;
-    top: 1470px;
+    top: 1490px;
     left: 60px;
     color: #2238b4;
   }
@@ -286,23 +287,44 @@
   #last1, #last2, #last3, #last4, #last5, #last6{
     margin: 40px 0 20px 20px;
   }
-  .exampleExplain {
+  .exampleExplain1 {
     font-family: "Gowun Dodum", sans-serif;
     color: #2238b4;
     position: absolute;
-    top: 1140px;
+    top: 1080px;
+    left: 1380px;
+  }
+  .exampleExplain2 {
+    font-family: "Gowun Dodum", sans-serif;
+    color: #2238b4;
+    position: absolute;
+    top: 1540px;
     left: 1380px;
   }
   #last7 {
     width: 700px;
     position: absolute;
-    top: 1200px;
+    top: 1100px;
     left: 1160px;
     margin-top: 40px;
     border: 2px solid black;
     flex-wrap: wrap;
     font-size: 20px;
     padding: 20px 20px 20px 20px;
+  }
+  #last8 {
+    width: 700px;
+    position: absolute;
+    top: 1560px;
+    left: 1160px;
+    margin-top: 40px;
+    border: 2px solid black;
+    flex-wrap: wrap;
+    font-size: 20px;
+    padding: 20px 20px 20px 20px;
+  }
+  #last7 li, #last8 li {
+    list-style: none;
   }
   #last1 svg, #last2 svg, #last3 svg, #last4 svg, #last5 svg, #last6 svg {
     width: 300px;
