@@ -46,6 +46,7 @@ nav {
     font-weight: 400;
     text-transform: uppercase;
     margin-top: 28px;
+    margin-bottom: 20px;
     margin-left: auto;
     align-items: center;
     display: flex;
@@ -282,6 +283,7 @@ nav {
   /* 17goals.html */
   .seventeenImg {
     width: 1920px;
+    margin-top: 40px;
   }
   .seventeenImg img {
     width: 100px;
@@ -297,14 +299,14 @@ nav {
   }
   #goalText {
     position: absolute;
-    top: 580px;
-    left: 1000px;
-    width: 600px;
+    top: 500px;
+    left: 980px;
+    width: 700px;
   }
   #exImg {
     position: absolute;
-    top: 580px;
-    left: 260px;
+    top: 490px;
+    left: 230px;
     padding-right: 100px;
     border: 1px solid white;
   }

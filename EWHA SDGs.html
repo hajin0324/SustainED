@@ -417,6 +417,7 @@
 
     <footer id="keyText">
       <div id="reload">
+        <p id="keyword1">*빈도수 기반</p>
         <div class="threeGraph">
           <div id="last1">
             <p class="keyGraphName">이화여대 핵심 키워드</p>
@@ -493,6 +494,7 @@
             </script>
           </div>
         </div>
+        <p id="keyword2">*중요도 기반</p>
         <div class="threeGraph">
           <div id="last4">
             <p class="keyGraphName">이화여대 핵심 키워드</p>
@@ -594,12 +596,17 @@
               var svgWidth = 480;
               var svgHeight = 260;
 
+              var xScale = d3.scaleLinear()
+                             .domain([2, 50])
+                             .range([0, svgWidth]);
+
               //그래프에 사용할 변수
               var barElements; //막대그래프의 막대 요소를 저장할 변수
-              var dataMax = 400; //데이터의 최댓값
+              var dataMax = 80; //데이터의 최댓값
               var barHeight = 20; //막대 넓이
               var barMargin = 15; //막대 간격
               var length = 10;
+              
               //그래프 그리기(그래프 옵션)
               barElements = d3
                 .select(para)
@@ -613,7 +620,7 @@
                 .attr("class", "bar") //CSS 클래스를 지정
                 .attr("width", 0) //초깃값 0으로 설정
                 .attr("height", barHeight) //넓이 지정
-                .attr("x", 88)
+                .attr("x", 110)
                 .attr("y", function (d, i) {
                   //Y좌표 지정
                   return i * (barHeight + barMargin) + barMargin; //처음 Y축과 간격
@@ -630,13 +637,14 @@
                   return i * 200;
                 }) //0.4초 대기
                 .attr("x", function (d, i) {
-                  return 88;
+                  return 110;
                 }) //X 좌표를 지정
-                .attr("width", function (d, i) {
-                  //넓이설정.2번째의 파라미터에 함수지정
-                  length = length - 1;
-                  return 10 * length + (d * 1.2);
+                 .attr("width", function (d) {
+                  return xScale(d);
                 });
+                  //넓이설정.2번째의 파라미터에 함수지정
+/*                   length = length - 1;
+                  return 10 * length + (d * 1.2);; */
 
               //막대의 레이블을 표시
               barElements
@@ -663,7 +671,7 @@
                   return (barHeight + barMargin) * dataSet.length + 30;
                 })
                 .attr("width", "1")
-                .attr("x", 88);
+                .attr("x", 110);
             });
           }
         </script>

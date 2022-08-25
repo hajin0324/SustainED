@@ -605,14 +605,15 @@
                 dataSet.push(data[0][i]); //가로 줄 넣음
                 labelName.push(i); //레이블 넣음
               }
-              var xScale = d3.scaleLinear()
-                             .domain([2, 70])
-                             .range([svgWidth, 0]);
 
               //SVG요소의 넓이와 높이를 구함
               var svgEle = document.getElementById(para.substr(1));
-              var svgWidth = 480;
+              var svgWidth = 300;
               var svgHeight = 260;
+
+              var xScale = d3.scaleLinear()
+                             .domain([2, 50])
+                             .range([0, 250]);
 
               //그래프에 사용할 변수
               var barElements; //막대그래프의 막대 요소를 저장할 변수
@@ -653,8 +654,8 @@
                 .attr("x", function (d, i) {
                   return 110;
                 }) //X 좌표를 지정
-                 .attr("width", function (d, i) {
-                  return svgWidth - xScale(d);
+                 .attr("width", function (d) {
+                  return xScale(d);
                 });
                   //넓이설정.2번째의 파라미터에 함수지정
 /*                   length = length - 1;
