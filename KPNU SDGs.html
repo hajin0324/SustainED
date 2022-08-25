@@ -178,9 +178,9 @@
             .each(function (d) {
               var center = segments.centroid(d);
               d3.select(this)
-                .attr("x", center[0]-8)
+                .attr("x", center[0]-14)
                 .attr("y", center[1])
-                .text(d.data.number);
+                .text(d.data.number + "%");
             });
 
           var legends = svg
