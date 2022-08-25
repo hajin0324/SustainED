@@ -330,6 +330,24 @@ nav {
   .marginAuto {
     margin: auto;
   }
+
+
+
+/* logo */
+
+#logo1 {
+    padding-left: 1050px;
+    padding-top: 20px;
+    width: 400px;
+    height: 80px;
+    margin: auto;
+}
+#logo2 {
+    padding-left: 20px;
+    width: 360px;
+    height: 80px;
+    margin: auto;
+}
 /* .first-six {
     margin-top: 80px;
 }
